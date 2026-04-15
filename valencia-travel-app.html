@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Valencia Travel Guide • Apr 24–27</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E8630A;
+    --orange-light: #FFF0E6;
+    --gold: #C9963A;
+    --navy: #2E4272;
+    --cream: #B8D8EF;
+    --text: #ffffff;
+    --muted: #3A6080;
+    --white: #D6EDF9;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(26,37,64,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+    font-weight: 500;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    color: white;
+    padding: 36px 24px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(232,99,10,0.15);
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+
+  /* NAV TABS */
+  .nav {
+    background: #2E4272;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-item {
+    flex-shrink: 0;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-item.active { color: white; border-bottom-color: white; }
+  .nav-item:hover { color: rgba(255,255,255,0.75); }
+
+  /* SECTIONS */
+  .section { display: none; padding: 20px 16px 40px; }
+  .section.active { display: block; }
+
+  /* WEATHER SECTION */
+  .weather-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #2C3E6B 100%);
+    border-radius: var(--radius);
+    padding: 24px;
+    color: white;
+    margin-bottom: 16px;
+  }
+  .weather-hero .wh-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .weather-hero .wh-location { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 20px; }
+  .weather-days { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .weather-day {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+  }
+  .wd-name { font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+  .wd-icon { font-size: 24px; margin-bottom: 6px; }
+  .wd-hi { font-size: 18px; font-weight: 500; }
+  .wd-lo { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  .weather-tips {
+    background: var(--orange-light);
+    border-radius: var(--radius);
+    padding: 18px;
+  }
+  .weather-tips h3 { font-size: 14px; font-weight: 500; color: #2E4272; margin-bottom: 12px; }
+  .tip-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; line-height: 1.5; color: #2E4272; }
+  .tip-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* CARDS */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .card-header {
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .card-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+  }
+  .card-header .badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--orange-light);
+    color: var(--orange);
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
+  .card-body { padding: 16px 20px; }
+  .card-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .card-meta span { display: flex; align-items: center; gap: 4px; }
+
+  /* MENU ITEMS */
+  .menu-section { margin-bottom: 16px; }
+  .menu-section-title {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    gap: 12px;
+  }
+  .menu-item:last-child { border-bottom: none; }
+  .menu-item-name { font-size: 14px; font-weight: 600; line-height: 1.4; }
+  .menu-item-desc { font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.4; font-weight: 500; }
+  .menu-item-price { font-size: 13px; color: var(--orange); font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+
+  /* HISTORY */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--orange), var(--gold), var(--navy));
+  }
+  .timeline-item { padding-left: 44px; position: relative; margin-bottom: 24px; }
+  .timeline-dot {
+    position: absolute;
+    left: 6px; top: 4px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--orange);
+    border: 3px solid var(--cream);
+  }
+  .timeline-era {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+  .timeline-text { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 500; }
+
+  /* ATTRACTIONS */
+  .attraction {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .attraction-header {
+    padding: 16px 18px 12px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .attraction-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .attraction-info h3 { font-size: 16px; font-weight: 500; margin-bottom: 3px; }
+  .attraction-type { font-size: 12px; color: var(--muted); }
+  .attraction-detail {
+    padding: 0 18px 14px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  .how-to-get {
+    background: var(--orange-light);
+    margin: 0 18px 14px;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--orange);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .how-to-get strong { display: block; margin-bottom: 2px; color: var(--orange); }
+
+  /* FOOD SECTION */
+  .food-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .food-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .food-type { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .food-card p { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 500; }
+
+  /* HOTEL CARD */
+  .hotel-card {
+    background: linear-gradient(135deg, var(--navy), #2C3E6B);
+    border-radius: var(--radius);
+    padding: 22px;
+    color: white;
+    margin-bottom: 16px;
+  }
+  .hotel-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .hotel-name { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 4px; }
+  .hotel-addr { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+  .hotel-info { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.6; }
+
+  /* SECTION INTRO */
+  .section-intro {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    margin-bottom: 6px;
+    color: var(--navy);
+  }
+
+  /* SHARE BUTTON */
+  .share-area {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .share-area h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+  .share-area p { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.5; }
+  .btn-group { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .btn {
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary { background: var(--orange); color: white; }
+  .btn-primary:hover { background: #C5520A; }
+  .btn-secondary { background: var(--navy); color: white; }
+  .btn-secondary:hover { background: #131C33; }
+  .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+  .btn-outline:hover { background: var(--navy); color: white; }
+
+  .info-banner {
+    background: var(--orange-light);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--orange);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .divider { height: 1px; background: rgba(0,0,0,0.06); margin: 16px 0; }
+
+  @media (prefers-color-scheme: dark) {
+    body { background: #0F1624; color: #E8E4DC; }
+    .nav { background: #1A2540; border-bottom-color: rgba(255,255,255,0.06); }
+    .card, .food-card, .attraction, .share-area { background: #1A2540; }
+    .weather-tips { background: rgba(232,99,10,0.15); }
+    .how-to-get { background: rgba(232,99,10,0.15); }
+    .orange-light { background: rgba(232,99,10,0.15); }
+    .section-title { color: #E8E4DC; }
+    .timeline::before { }
+    .timeline-dot { border-color: #0F1624; }
+    --cream: #0F1624;
+  }
+  .flag { display:inline-flex; flex-direction:column; width:26px; height:19px; border-radius:3px; overflow:hidden; flex-shrink:0; box-shadow:0 1px 4px rgba(0,0,0,0.4); vertical-align:middle; margin-right:6px; }
+  .flag-red { background:#c60b1e; flex:1; }
+  .flag-yellow { background:#ffc400; flex:1.4; }
+  .header h1 { display:flex; align-items:center; gap:10px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">Your Travel Companion</div>
+  <h1><span class="flag"><div class="flag-red"></div><div class="flag-yellow"></div><div class="flag-red"></div></span>Valencia<br><em>España</em></h1>
+  <div class="header-sub">
+    <span>Apr 24</span>
+    <div class="header-dot"></div>
+    <span>Apr 27, 2026</span>
+    <div class="header-dot"></div>
+    <span>SH Valencia Palace</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-item active" onclick="showTab('weather')">🌤 Weather</div>
+  <div class="nav-item" onclick="showTab('restaurants')">🍽 Restaurants</div>
+  <div class="nav-item" onclick="showTab('attractions')">🏛 Attractions</div>
+  <div class="nav-item" onclick="showTab('history')">📜 History</div>
+  <div class="nav-item" onclick="showTab('food')">🥘 Cuisine</div>
+  <div class="nav-item" onclick="showTab('wines')">🍷 Wines</div>
+  <div class="nav-item" onclick="showTab('share')">↗ Share</div>
+</nav>
+
+<!-- WEATHER -->
+<div class="section active" id="tab-weather">
+  <div class="hotel-card">
+    <div class="hotel-label">Your Base</div>
+    <div class="hotel-name">SH Valencia Palace</div>
+    <div class="hotel-addr">Paseo de la Alameda, 32 · Valencia</div>
+    <div class="hotel-info">Elegant 5-star hotel on the Alameda promenade, close to the Turia Gardens and city centre. A superb base for exploring all of Valencia.</div>
+  </div>
+
+  <div class="weather-hero">
+    <div class="wh-label">Forecast · April 2026</div>
+    <div class="wh-location">Valencia, Spain</div>
+    <div class="weather-days">
+      <div class="weather-day">
+        <div class="wd-name">Thu 24</div>
+        <div class="wd-icon">☀️</div>
+        <div class="wd-hi">24°</div>
+        <div class="wd-lo">13° low</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-name">Fri 25</div>
+        <div class="wd-icon">🌤</div>
+        <div class="wd-hi">25°</div>
+        <div class="wd-lo">13° low</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-name">Sat 26</div>
+        <div class="wd-icon">☀️</div>
+        <div class="wd-hi">24°</div>
+        <div class="wd-lo">14° low</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-name">Sun 27</div>
+        <div class="wd-icon">🌤</div>
+        <div class="wd-hi">23°</div>
+        <div class="wd-lo">14° low</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="weather-tips">
+    <h3>What to pack & expect</h3>
+    <div class="tip-item"><div class="tip-icon">👕</div><div>Warm spring days — T-shirts and light layers are perfect. Bring a light jacket for evenings as it dips to 13–14°C after dark.</div></div>
+    <div class="tip-item"><div class="tip-icon">☀️</div><div>Up to 12 hours of sunshine on 24 April — the sunniest day of your trip. Pack sunscreen and sunglasses.</div></div>
+    <div class="tip-item"><div class="tip-icon">🌂</div><div>Only a 22% chance of rain — April showers are brief if they come. A compact umbrella is a sensible backup.</div></div>
+    <div class="tip-item"><div class="tip-icon">🌊</div><div>Sea temperature is around 18°C — cool but refreshing if you fancy a dip at Malvarrosa Beach.</div></div>
+    <div class="tip-item"><div class="tip-icon">👟</div><div>Great walking weather. The city centre is very walkable — comfortable shoes are a must for the cobblestones of El Carmen.</div></div>
+  </div>
+</div>
+
+<!-- RESTAURANTS -->
+<div class="section" id="tab-restaurants">
+  <p class="section-title">Your Restaurants</p>
+  <p class="section-intro">Three wonderful choices covering authentic Italian, Argentine grill, and Valencian paella — a perfect mix for your stay.</p>
+
+  <!-- San Tommaso -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>San Tommaso</h2>
+      </div>
+      <div class="badge">Italian</div>
+    </div>
+    <div class="card-body">
+      <div class="card-meta">
+        <span>📍 Carrer de la Corretgeria, 39</span>
+        <span>🕐 Mon–Sun 12:00–00:00</span>
+        <span>📞 +34 963 920 755</span>
+      </div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px;">One of Valencia's most romantic restaurants, nestled in the heart of the historic Ciutat Vella near the Cathedral. Specialises in authentic handmade Italian cuisine — widely considered the best pizza in Valencia.</p>
+
+      <div class="menu-section">
+        <div class="menu-section-title">Starters</div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Caprese Salad</div><div class="menu-item-desc">Buffalo mozzarella, ripe tomatoes, fresh basil</div></div>
+          <div class="menu-item-price">~€9</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Rosemary Focaccia</div><div class="menu-item-desc">House-baked, crispy outside, pillowy inside</div></div>
+          <div class="menu-item-price">~€6</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Carpaccio di Polpo</div><div class="menu-item-desc">Thin-sliced octopus carpaccio</div></div>
+          <div class="menu-item-price">~€12</div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-title">Pasta</div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Ravioli di Pera</div><div class="menu-item-desc">Fresh pear & cheese ravioli, pistachio cream sauce — house signature</div></div>
+          <div class="menu-item-price">~€16</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Spaghetti al Tartufo</div><div class="menu-item-desc">Fresh truffle spaghetti</div></div>
+          <div class="menu-item-price">~€18</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Spaghetti ai Frutti di Mare</div><div class="menu-item-desc">Fresh seafood pasta</div></div>
+          <div class="menu-item-price">~€19.50</div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-title">Pizza</div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Margherita</div><div class="menu-item-desc">Classic tomato, house fior di latte</div></div>
+          <div class="menu-item-price">~€12</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Pizza Porcini</div><div class="menu-item-desc">Porcini mushroom, mozzarella, sausage, rocket</div></div>
+          <div class="menu-item-price">~€16.50</div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-title">Desserts</div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Tiramisù</div><div class="menu-item-desc">Classic house-made tiramisu</div></div>
+          <div class="menu-item-price">~€7.50</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Blueberry Cheesecake</div><div class="menu-item-desc">House-baked, highly praised by guests</div></div>
+          <div class="menu-item-price">~€7</div>
+        </div>
+      </div>
+
+      <div class="info-banner">💡 <strong>Tip:</strong> Book ahead — this is one of Valencia's most popular restaurants and queues form on weekends. The pear & pistachio ravioli is a must-try.</div>
+    </div>
+  </div>
+
+  <!-- El Porteño -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>El Porteño</h2>
+      </div>
+      <div class="badge">Argentine Grill</div>
+    </div>
+    <div class="card-body">
+      <div class="card-meta">
+        <span>📍 Carrer d'en Llop, 4</span>
+        <span>🕐 Mon–Sun 13:00–01:00 (closed Wed)</span>
+        <span>📞 +34 655 916 897</span>
+      </div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px;">An Argentine steakhouse in the heart of Ciutat Vella, near Plaza del Ayuntamiento. Ranked among Valencia's top 10 steakhouses, celebrated for its wood-fired grill and top-quality cuts. The tasting menu with drinks included is exceptional value.</p>
+
+      <div class="menu-section">
+        <div class="menu-section-title">Starters</div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Empanadas</div><div class="menu-item-desc">Hand-crimped pastries — beef or chicken fillings</div></div>
+          <div class="menu-item-price">~€8</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Provoleta</div><div class="menu-item-desc">Grilled provolone cheese — Argentine classic</div></div>
+          <div class="menu-item-price">~€9</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Chorizo Criollo</div><div class="menu-item-desc">Spiced Argentine sausage from the grill</div></div>
+          <div class="menu-item-price">~€8</div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-title">Mains — The Grill</div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Ribeye (350g)</div><div class="menu-item-desc">Prime cut, cooked to order over wood fire</div></div>
+          <div class="menu-item-price">~€28</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Entraña (Skirt Steak)</div><div class="menu-item-desc">With house chimichurri — highly recommended</div></div>
+          <div class="menu-item-price">~€22</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Beef Ribs</div><div class="menu-item-desc">Slow-cooked, richly seasoned</div></div>
+          <div class="menu-item-price">~€26</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Mixed Asado Platter (for 2)</div><div class="menu-item-desc">Selection of meats — easily feeds 3</div></div>
+          <div class="menu-item-price">~€50</div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-title">Desserts</div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Crepes con Dulce de Leche</div><div class="menu-item-desc">Argentine caramel crepes</div></div>
+          <div class="menu-item-price">~€7</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Flan Casero</div><div class="menu-item-desc">House-made caramel custard</div></div>
+          <div class="menu-item-price">~€6</div>
+        </div>
+      </div>
+
+      <div class="info-banner">💡 <strong>Tip:</strong> The tasting menu (includes drinks) is exceptional value and a guest favourite. Ask for Juan or Lucila — praised by name in countless reviews. Closed Wednesdays.</div>
+    </div>
+  </div>
+
+  <!-- Masusa -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>Masusa</h2>
+      </div>
+      <div class="badge">Valencian Paella</div>
+    </div>
+    <div class="card-body">
+      <div class="card-meta">
+        <span>📍 Carrer del Literat Azorín, 17 · Russafa</span>
+        <span>🕐 Daily 9:00–03:00</span>
+        <span>📞 +34 611 676 826</span>
+      </div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px;">A celebrated paella bar in the vibrant Russafa neighbourhood, run by chef Susana (the "Mama Susana" behind the name). Many guests call it the best paella they've ever had, anywhere. A true Valencian institution.</p>
+
+      <div class="menu-section">
+        <div class="menu-section-title">Tapas & Starters</div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Grilled Octopus with Three Oils</div><div class="menu-item-desc">Signature starter — beautifully presented</div></div>
+          <div class="menu-item-price">~€14</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Scallops with Prawns</div><div class="menu-item-desc">Delicate and elaborately prepared</div></div>
+          <div class="menu-item-price">~€16</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Aubergine Tempura with Honey</div><div class="menu-item-desc">Unexpected sweet-savoury delight — don't miss it</div></div>
+          <div class="menu-item-price">~€9</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Croquetas de Pollo</div><div class="menu-item-desc">Crispy chicken croquettes, creamy inside</div></div>
+          <div class="menu-item-price">~€8</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Salmon & Avocado Tartare</div><div class="menu-item-desc">Fresh and light, great to start</div></div>
+          <div class="menu-item-price">~€12</div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-title">Paella & Rice (cooked fresh, 40 mins)</div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Paella Valenciana</div><div class="menu-item-desc">Traditional chicken, rabbit & vegetables — the original</div></div>
+          <div class="menu-item-price">~€16 pp</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Paella Negra (Squid Ink)</div><div class="menu-item-desc">Rich, dramatic black rice — a guest favourite</div></div>
+          <div class="menu-item-price">~€18 pp</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Paella Masusa (Spicy Red)</div><div class="menu-item-desc">Signature red paella — made with beetroot juice</div></div>
+          <div class="menu-item-price">~€18 pp</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Fideuà</div><div class="menu-item-desc">Noodle paella with seafood — a local alternative</div></div>
+          <div class="menu-item-price">~€17 pp</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Arroz a Banda</div><div class="menu-item-desc">Fisherman's rice cooked in rich fish stock</div></div>
+          <div class="menu-item-price">~€17 pp</div>
+        </div>
+      </div>
+
+      <div class="info-banner">💡 <strong>Tip:</strong> Reserve ahead — it fills up fast, especially evenings. Paella is cooked fresh (takes 40 mins) so order a tapa to enjoy while you wait. Single-serve portions available on request.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ATTRACTIONS -->
+<div class="section" id="tab-attractions">
+  <p class="section-title">Top 10 Attractions</p>
+  <p class="section-intro">All distances and directions are from Hotel SH Valencia Palace on Paseo de la Alameda, 32.</p>
+
+  <div class="attraction">
+    <div class="attraction-header">
+      <div class="attraction-num">1</div>
+      <div class="attraction-info">
+        <h3>City of Arts & Sciences</h3>
+        <div class="attraction-type">Architecture · Science · Aquarium</div>
+      </div>
+    </div>
+    <div class="attraction-detail">Santiago Calatrava's futuristic masterpiece — an entire cultural city within a city. Home to Europe's largest aquarium (Oceanogràfic), an IMAX cinema (Hemisfèric), interactive science museum, opera house, and stunning gardens. Budget a full day here.</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>Walk south along the Turia Gardens — about 25 mins on foot or a scenic 10-min bike ride. Alternatively, Bus 95 from Alameda stops right outside. Tram Line 1 from Pont de Fusta to Nou d'Octubre also works.</div></div>
+  </div>
+
+  <div class="attraction">
+    <div class="attraction-header">
+      <div class="attraction-num">2</div>
+      <div class="attraction-info">
+        <h3>Valencia Cathedral & Holy Grail</h3>
+        <div class="attraction-type">Historic · Religious · Views</div>
+      </div>
+    </div>
+    <div class="attraction-detail">An extraordinary blend of Romanesque, Gothic, and Baroque styles built over a mosque. Houses what many scholars believe to be the actual Holy Grail. Climb the 207 steps of the Miguelete Bell Tower for panoramic city views. Entry from €3.</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>15-min walk west along Calle de la Paz into the old town. Pass Plaza de la Reina and you're there.</div></div>
+  </div>
+
+  <div class="attraction">
+    <div class="attraction-header">
+      <div class="attraction-num">3</div>
+      <div class="attraction-info">
+        <h3>Turia Gardens</h3>
+        <div class="attraction-type">Nature · Walking · Cycling</div>
+      </div>
+    </div>
+    <div class="attraction-detail">Nine kilometres of lush parkland built along the old Turia riverbed — one of Spain's largest urban parks. Perfect for walking, cycling, or picnicking. Passes landmarks including the Gulliver Park, Palau de la Música, and connects your hotel to the City of Arts & Sciences.</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>The Turia Gardens are literally outside your hotel on Paseo de la Alameda — simply walk to the riverbed. Hire bikes from the hotel or a nearby rental shop.</div></div>
+  </div>
+
+  <div class="attraction">
+    <div class="attraction-header">
+      <div class="attraction-num">4</div>
+      <div class="attraction-info">
+        <h3>Mercado Central</h3>
+        <div class="attraction-type">Food Market · Architecture</div>
+      </div>
+    </div>
+    <div class="attraction-detail">Europe's largest fresh produce market, housed in a stunning Art Nouveau building from 1928. Over 1,200 stalls selling local produce, seafood, charcuterie, and more. A feast for the senses — and free to enter. Visit weekday mornings for the best atmosphere. Closed Sundays.</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk west into the old town. Or take Metro Line 1 from Alameda to Xàtiva (2 stops), then 5 mins on foot north to Plaza del Mercado.</div></div>
+  </div>
+
+  <div class="attraction">
+    <div class="attraction-header">
+      <div class="attraction-num">5</div>
+      <div class="attraction-info">
+        <h3>La Lonja de la Seda (Silk Exchange)</h3>
+        <div class="attraction-type">UNESCO World Heritage · Gothic</div>
+      </div>
+    </div>
+    <div class="attraction-detail">A spectacular 15th-century Gothic masterpiece and UNESCO World Heritage Site — one of Europe's finest examples of civil Gothic architecture. The magnificent Hall of Columns with its soaring twisted pillars is breathtaking. Right next to the Central Market.</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>Same route as Mercado Central — they sit side by side in Plaza del Mercado. 20 mins on foot or Metro Line 1 to Xàtiva.</div></div>
+  </div>
+
+  <div class="attraction">
+    <div class="attraction-header">
+      <div class="attraction-num">6</div>
+      <div class="attraction-info">
+        <h3>Barrio del Carmen</h3>
+        <div class="attraction-type">Old Town · Street Art · Nightlife</div>
+      </div>
+    </div>
+    <div class="attraction-detail">Valencia's oldest and most atmospheric neighbourhood — medieval towers, narrow cobblestone lanes, Roman ruins, and vibrant street art all coexist. By day it's full of independent shops and cafés; by evening it's the heartbeat of Valencia's nightlife. Don't miss the Torres de Serranos (14th-century city gates).</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>15–20 min walk west across the Turia Gardens. Follow the riverbed path and enter the old town from the north side.</div></div>
+  </div>
+
+  <div class="attraction">
+    <div class="attraction-header">
+      <div class="attraction-num">7</div>
+      <div class="attraction-info">
+        <h3>Malvarrosa Beach</h3>
+        <div class="attraction-type">Beach · Seafood · Relaxation</div>
+      </div>
+    </div>
+    <div class="attraction-detail">Valencia's main city beach — wide, sandy, and clean, with a long promenade lined with paella restaurants. The sea is around 18°C in late April — cool but swimmable. Great for a morning stroll, sunbathing, or a proper seafood lunch at one of the beachfront chiringuitos.</div>
+    <div class="how-to-get">🚌 <div><strong>Getting there from your hotel</strong>Take Metro Line 4 from Alameda station to Marítim-Serreria (about 12 mins), then Tram Line 6 or T8 to Platja de les Arenes. Or Bus 1 or 19 from the city centre. About 20 mins total.</div></div>
+  </div>
+
+  <div class="attraction">
+    <div class="attraction-header">
+      <div class="attraction-num">8</div>
+      <div class="attraction-info">
+        <h3>Church of San Nicolás de Bari</h3>
+        <div class="attraction-type">Architecture · Frescoes</div>
+      </div>
+    </div>
+    <div class="attraction-detail">Often called the "Valencian Sistine Chapel" — the ceiling is covered in breathtaking Baroque frescoes depicting the lives of the saints. One of the most visually stunning interiors in all of Spain, and recently fully restored. Book timed tickets in advance.</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk into the old town, near the Cathedral. Or Metro to Xàtiva then walk north 10 mins.</div></div>
+  </div>
+
+  <div class="attraction">
+    <div class="attraction-header">
+      <div class="attraction-num">9</div>
+      <div class="attraction-info">
+        <h3>Ceramics Museum (Marqués de Dos Aguas)</h3>
+        <div class="attraction-type">Museum · Palace · Rococo</div>
+      </div>
+    </div>
+    <div class="attraction-detail">Housed in a magnificent 15th-century palace with an extraordinary alabaster entrance carved in Rococo style. Inside you'll find the National Ceramics Collection, including Valencia's famous hand-painted tiles and a recreation of a traditional Valencian kitchen from the 1700s.</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk via Calle de la Paz. Or Metro to Xàtiva, then 5-min walk north up Calle del Poeta Querol.</div></div>
+  </div>
+
+  <div class="attraction">
+    <div class="attraction-header">
+      <div class="attraction-num">10</div>
+      <div class="attraction-info">
+        <h3>Albufera Natural Park</h3>
+        <div class="attraction-type">Nature · Boat Rides · Paella Origins</div>
+      </div>
+    </div>
+    <div class="attraction-detail">A tranquil lagoon and wetland reserve just 10km south of Valencia — widely considered the birthplace of paella. Take a traditional wooden boat ride on the lagoon, spot migratory birds, and watch a stunning Mediterranean sunset over the water. Local restaurants here serve paella in the most authentic setting possible.</div>
+    <div class="how-to-get">🚌 <div><strong>Getting there from your hotel</strong>Bus 25 from Plaça de l'Ajuntament runs directly to Albufera village (about 35–40 mins). Alternatively, join a half-day guided tour which often includes a boat ride and paella lunch — well worth it.</div></div>
+  </div>
+</div>
+
+<!-- HISTORY -->
+<div class="section" id="tab-history">
+  <p class="section-title">Valencia Through the Ages</p>
+  <p class="section-intro">From Roman colony to modern Mediterranean powerhouse — Valencia has one of the richest histories in Spain.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">138 BC</div>
+      <div class="timeline-title">Roman Valentia</div>
+      <div class="timeline-text">Founded by the Roman consul Decimus Junius Brutus as Valentia Edetanorum, the city quickly became a prosperous Roman colony. You can still see the original Roman forum beneath the city — now displayed in the L'Almoina archaeological museum.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">711–1238 AD</div>
+      <div class="timeline-title">Moorish Balansiya</div>
+      <div class="timeline-text">Following the Umayyad conquest of Iberia, Valencia — known as Balansiya — flourished under Moorish rule for over five centuries. The Moors introduced sophisticated irrigation systems (the famous Tribunal de las Aguas still meets today), transformed agriculture with rice and orange cultivation, and built a thriving cultural city. Arabic influences can still be felt in place names, food, and the street patterns of the old town.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">1238</div>
+      <div class="timeline-title">Christian Reconquest</div>
+      <div class="timeline-text">King James I of Aragon (Jaume I) captured Valencia on 9 October 1238 — a date still celebrated as Valencia's national day. He transformed the city's mosque into the Cathedral and began rebuilding Valencia as a Christian kingdom. This date remains deeply important to Valencian identity.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">14th–15th Century</div>
+      <div class="timeline-title">The Golden Age of Commerce</div>
+      <div class="timeline-text">Valencia entered its golden age as one of the most prosperous cities in the Mediterranean. The silk trade made it fabulously wealthy — hence the magnificent La Lonja de la Seda (Silk Exchange), completed in 1548. The city became a centre of Renaissance art, philosophy, and printing. The first book ever printed in Spain was produced in Valencia in 1474. Population exceeded 70,000 — enormous for medieval Europe.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">1609</div>
+      <div class="timeline-title">Expulsion of the Moriscos</div>
+      <div class="timeline-text">King Philip III ordered the expulsion of the Moriscos (Muslim converts to Christianity), devastating the Valencian economy. Around 135,000 people were expelled from the Valencia region alone — roughly a third of the population. The agricultural economy, built on Moorish irrigation and expertise, collapsed almost overnight.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">1700s</div>
+      <div class="timeline-title">War of Spanish Succession</div>
+      <div class="timeline-text">Valencia backed the losing side (the Habsburgs) in the War of Spanish Succession. Following the Bourbon victory, Philip V abolished the historic Valencian laws and privileges in 1707 via the Nueva Planta decrees, suppressing the Valencian language and regional autonomy — wounds that still resonate in Valencian culture and politics today.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">19th–Early 20th Century</div>
+      <div class="timeline-title">Industrial Revival & Las Fallas</div>
+      <div class="timeline-text">Valencia industrialised rapidly through silk, orange exports, and ceramics. The famous Las Fallas festival — likely rooted in medieval carpenters' guilds burning wood shavings at the spring equinox — grew into the magnificent pyrotechnic spectacle it is today, declared Intangible Cultural Heritage of Humanity by UNESCO in 2016.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">1936–1939</div>
+      <div class="timeline-title">Civil War Capital</div>
+      <div class="timeline-text">Valencia served briefly as the capital of the Spanish Republic during the Civil War (1936–39) after the government fled Madrid. The city was heavily bombed. Franco's victory ended the Republic, and Valencia endured decades of Francoist centralisation that suppressed Valencian language and culture.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">1980s–2000s</div>
+      <div class="timeline-title">Democracy & Reinvention</div>
+      <div class="timeline-text">Following Spain's transition to democracy, Valencia was granted autonomy in 1982. The city famously rerouted the Turia River after devastating floods in 1957, converting the old riverbed into today's beloved Turia Gardens. The 1992 America's Cup, the 2007 Formula 1 European Grand Prix, and Santiago Calatrava's City of Arts & Sciences (completed 2009) transformed Valencia into a world-class destination.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">Today</div>
+      <div class="timeline-title">Spain's Third City</div>
+      <div class="timeline-text">With a population of 800,000, Valencia is Spain's third-largest city — but increasingly seen as its most liveable. It was named World Design Capital in 2022 and regularly tops quality-of-life rankings. Its food scene, climate, beaches, and relatively affordable cost of living attract growing numbers of international residents and visitors every year.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOD & DRINK -->
+<div class="section" id="tab-food">
+  <p class="section-title">Valencian Food & Drink</p>
+  <p class="section-intro">Valencia's culinary heritage is one of the richest in Spain — a product of Roman, Moorish, and Mediterranean influences across 2,000 years.</p>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-header">
+      <h2>A Brief Food History</h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;">Valencia's food culture begins with the Romans, who cultivated wheat, grapes, and olive oil along the fertile coastal plain. The Moorish occupation transformed Valencian agriculture entirely — introducing rice cultivation to the wetlands of Albufera (creating the essential ingredient for paella), planting citrus groves that now define the landscape, and developing the sophisticated irrigation channels (acequias) that still water the region's fields today.</p>
+      <br>
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;">Paella itself was born in the rice paddies of Albufera in the 18th and 19th centuries — originally a working-class dish made by farmers cooking whatever was available: rice, rabbit, chicken, snails, and local green beans, over an open fire in a wide flat pan. The flat pan (paellera) allows maximum surface area for the prized socarrat — the caramelised crust of rice at the bottom. Valencia remains fiercely protective of the authentic recipe, and debates about which ingredients are "truly" Valencian are taken with great seriousness.</p>
+    </div>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">The Essential Dish</div>
+    <h3>Paella Valenciana</h3>
+    <p>The authentic original — chicken, rabbit, ferraura green beans, garrofó (large white beans), tomato, saffron, olive oil, and short-grain rice, cooked in a wide, shallow pan outdoors over an orange wood fire. Never seafood in the original. The socarrat (crispy caramelised bottom layer) is the mark of a perfectly cooked paella.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">Unique to Valencia</div>
+    <h3>Horchata (Orxata)</h3>
+    <p>A sweet, milky-white drink made from tigernuts (chufas) — a tuber grown exclusively in the Huerta Valenciana. Creamy, slightly sweet, and refreshing, it's been made here since the Moorish period. Traditionally served ice-cold with long, sugar-dusted pastries called fartons. Not to be confused with Mexican horchata — this is the original.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">Street & Market Food</div>
+    <h3>Buñuelos de Calabaza</h3>
+    <p>Pumpkin fritters — light, airy, and dusted with sugar. A Valencia specialty eaten especially during Las Fallas festival in March, but found in markets year-round. The combination of buñuelos dipped in hot chocolate is a beloved Valencian tradition.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">Rice Variations</div>
+    <h3>Arroz a Banda & Fideuà</h3>
+    <p>Arroz a banda ("rice to one side") is a fisherman's dish — rice cooked in rich fish stock served separately from the seafood that made the broth. Fideuà is like paella but made with short vermicelli noodles instead of rice, with seafood and a rich fish stock. Both are deeply Valencian and worth trying alongside traditional paella.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">The Citrus Capital</div>
+    <h3>Valencia Oranges</h3>
+    <p>Valencia's orange groves are famous worldwide — the Valencia orange variety is the world's most widely grown. Fresh-squeezed orange juice (zumo natural) is the standard breakfast drink. The combination of sweet citrus, rice, and seafood defines the Valencian kitchen.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">Local Drinks</div>
+    <h3>Agua de Valencia</h3>
+    <p>Valencia's signature cocktail, invented at Café Madrid in 1959. A refreshing mix of fresh orange juice, cava (Catalan sparkling wine), vodka, and gin. Dangerously easy to drink and served ice-cold in large pitchers. The perfect evening aperitivo.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">The Snack</div>
+    <h3>All i Pebre</h3>
+    <p>A fiery, garlicky stew made with eel from the Albufera lagoon, paprika, garlic, and almonds. One of the oldest Valencian dishes, pre-dating the arrival of tomatoes from the Americas. A robust, intensely flavoured dish eaten along the shores of Albufera — very much an acquired taste and a badge of local pride.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">Artisan Spirits</div>
+    <h3>Mistela & Licor de Café</h3>
+    <p>Mistela is a traditional sweet Valencian wine made by arresting grape fermentation with the addition of alcohol — rich, fortified, and often drunk as a digestif. Licor de café (coffee liqueur) is another beloved Valencian after-dinner drink, served in small glasses and often paired with a piece of dark chocolate.</p>
+  </div>
+</div>
+
+<!-- WINES -->
+<div class="section" id="tab-wines">
+  <p class="section-title">Local Wines</p>
+  <p class="section-intro">Valencia's wine scene is undergoing a quiet renaissance. With three distinct DOs — Valencia, Utiel-Requena, and Alicante — the region produces everything from powerful reds to crisp Mediterranean whites and legendary sweet Moscatel.</p>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-header"><h2>Wine Country</h2></div>
+    <div class="card-body">
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;">Valencia's vineyards stretch from the high-altitude plateaus of Utiel-Requena (600–900m) inland, where cool nights preserve freshness and acidity, down to the warm coastal plains where Moscatel thrives in Mediterranean sunshine. The region's winemakers are increasingly focused on indigenous varieties — Bobal, Merseguera, Verdil, and Monastrell — that express a genuine sense of place. Quality has risen sharply over the past 15 years while prices remain excellent value by Spanish standards.</p>
+    </div>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">🍷 Red Wines</div>
+    <h3>Bobal</h3>
+    <p>Valencia's flagship red grape, grown almost exclusively in the Utiel-Requena DO. Produces intensely violet-coloured wines with aromas of ripe blackberries, raspberries, and subtle earthy notes. On the palate: medium-to-full bodied with good natural acidity, smooth tannins, and a long finish. Best drunk slightly cool — a perfect partner to paella and grilled meats.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">🍷 Red Wines</div>
+    <h3>Monastrell (Mourvèdre)</h3>
+    <p>Thrives in the warmest parts of the Valencia and Alicante DOs. Delivers intense aromas of dark fruits — blackcurrant, plum, dark chocolate — with herbal and spice notes. Full-bodied, powerful, and structured, with high alcohol and grippy tannins. The Alicante DO produces some of Spain's most exciting Monastrell, including the rare aged Fondillón dessert wine — the only one of its kind in the world.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">🍷 Red Wines</div>
+    <h3>Garnacha Tintorera & Tempranillo</h3>
+    <p>Garnacha Tintorera (locally called Tintorera) is a rare red-fleshed grape that gives deeply coloured, rich wines with dark fruit and spice. Tempranillo — Spain's most planted variety — produces fresher, more elegant reds here than in Rioja: red cherry, leather, and subtle oak. Often blended with Cabernet Sauvignon or Merlot for structure and complexity.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">🥂 White Wines</div>
+    <h3>Merseguera</h3>
+    <p>Valencia's most planted indigenous white variety. Produces light, fresh, and pleasantly aromatic wines with distinctive citrus and grassy notes — think lemon zest, white flowers, and a clean mineral finish. Light-bodied with good natural acidity. The ideal summer white and a natural match for the region's seafood and rice dishes. Best drunk young and well chilled.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">🥂 White Wines</div>
+    <h3>Moscatel de Valencia</h3>
+    <p>The region's most celebrated white — a lusciously sweet, golden wine made from Moscatel de Alejandría grapes grown in the warm Moscatel subzone. Rich and unctuous with intense aromas of orange blossom, apricot, ripe peach, and honey. Traditionally served chilled as a dessert wine or aperitivo. Excellent value and deeply Valencian — look for it in any local bar or market.</p>
+  </div>
+
+  <div class="food-card">
+    <div class="food-type">🥂 White Wines</div>
+    <h3>Verdil & Macabeo</h3>
+    <p>Verdil is a rare indigenous white being revived by adventurous winemakers — fuller bodied than Merseguera, with stone fruit, floral notes, and a saline mineral quality that pairs beautifully with seafood. Macabeo (also the base for Cava) contributes freshness and crisp acidity to blends and single-varietal whites. Both are gaining attention from sommeliers across Spain.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-header"><h2>Where to Try Local Wine</h2></div>
+    <div class="card-body">
+      <div class="tip-item"><div class="tip-icon">🏪</div><div>Mercado de Colón — wine bars inside the beautiful 1914 market building serve excellent Valencian wines by the glass alongside tapas.</div></div>
+      <div class="tip-item"><div class="tip-icon">🍾</div><div>Ask any restaurant for <em>vino de la región</em> — local house wine is almost always Valencian, affordable, and very good.</div></div>
+      <div class="tip-item"><div class="tip-icon">🛒</div><div>Pick up a bottle of Moscatel de Valencia from any supermarket (Mercadona stocks excellent local producers for under €5) — it makes a perfect evening drink on the hotel terrace.</div></div>
+      <div class="tip-item"><div class="tip-icon">🚗</div><div>The Utiel-Requena wine region is just 80km from Valencia — a great half-day trip if you want to visit a bodega and taste Bobal at source.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SHARE -->
+<div class="section" id="tab-share">
+  <p class="section-title">Share This App</p>
+  <p class="section-intro">This is a fully self-contained HTML file that works on any device — no app store, no login, no internet connection required once downloaded.</p>
+
+  <div class="share-area">
+    <h3>📲 Share with friends</h3>
+    <p>Send the HTML file directly via WhatsApp, email, or AirDrop. Anyone who receives it can open it in their phone's browser — it works offline and installs to the home screen.</p>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="shareApp()">Share this file</button>
+      <button class="btn btn-secondary" onclick="copyLink()">Copy instructions</button>
+    </div>
+  </div>
+
+  <div class="share-area">
+    <h3>💻 For your developer colleague</h3>
+    <p>This is a single HTML file — no dependencies, no build step, no framework. To add it to GitHub, simply commit the <code>valencia-travel-app.html</code> file to a repository. It can be hosted instantly on GitHub Pages for a shareable URL.</p>
+    <div class="btn-group">
+      <button class="btn btn-outline" onclick="showGithubInstructions()">GitHub instructions</button>
+    </div>
+  </div>
+
+  <div class="card" id="github-instructions" style="display:none;margin-top:16px;">
+    <div class="card-header"><h2>GitHub Pages Setup</h2></div>
+    <div class="card-body">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-era">Step 1</div>
+          <div class="timeline-title">Create a repository</div>
+          <div class="timeline-text">Go to github.com/new and create a new public repository — e.g., <code>valencia-trip</code>.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-era">Step 2</div>
+          <div class="timeline-title">Upload the file</div>
+          <div class="timeline-text">Click "Add file" → "Upload files" and drag in <code>valencia-travel-app.html</code>. Commit with a message like "Add Valencia travel app".</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-era">Step 3</div>
+          <div class="timeline-title">Enable GitHub Pages</div>
+          <div class="timeline-text">Go to Settings → Pages → Source: Deploy from branch → branch: main → folder: root. Save. Within a minute your app will be live at <code>yourusername.github.io/valencia-trip/valencia-travel-app.html</code>.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-era">Step 4</div>
+          <div class="timeline-title">Share the link</div>
+          <div class="timeline-text">Send the GitHub Pages URL to friends. They can open it in any browser on any device, or use "Add to Home Screen" in their mobile browser to install it like an app.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-banner" style="margin-top:16px;">
+    ✅ This app works completely offline once opened. No data is collected. No sign-in required. All information is embedded in the file.
+  </div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  const tabs = ['weather','restaurants','attractions','history','food','wines','share'];
+  const idx = tabs.indexOf(id);
+  document.querySelectorAll('.nav-item')[idx].classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function shareApp() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Valencia Travel Guide Apr 24–27',
+      text: 'Our Valencia travel companion — weather, restaurants, attractions, history and food all in one app!',
+      url: window.location.href
+    }).catch(() => {});
+  } else {
+    alert('To share: save this HTML file and send it via email, WhatsApp, or AirDrop. Recipients can open it in any browser.');
+  }
+}
+
+function copyLink() {
+  const text = 'Open the file "valencia-travel-app.html" in any web browser on your phone or laptop. No internet needed! Tap the share icon in your browser and choose "Add to Home Screen" to install it like an app.';
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => alert('Instructions copied to clipboard!'));
+  } else {
+    alert(text);
+  }
+}
+
+function showGithubInstructions() {
+  const el = document.getElementById('github-instructions');
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+</body>
+</html>
