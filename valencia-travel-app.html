@@ -354,6 +354,27 @@
   }
   .divider { height: 1px; background: rgba(0,0,0,0.06); margin: 16px 0; }
 
+
+  /* OPENING HOURS */
+  .hours-row { display:flex; flex-wrap:wrap; gap:6px; padding:10px 18px 14px; border-top:1px solid rgba(0,0,0,0.05); }
+  .hours-pill { font-size:11px; padding:4px 10px; border-radius:20px; font-weight:500; white-space:nowrap; }
+  .hours-label { font-size:11px; color:var(--muted); align-self:center; margin-right:2px; font-weight:500; }
+  .hours-open { background:#e6f4ea; color:#2d6a4f; }
+  .hours-limited { background:#fff3cd; color:#856404; }
+  .hours-closed { background:#fde8e8; color:#a61c00; }
+  /* STREET VIEW BUTTON */
+  .sv-btn { display:inline-flex; align-items:center; gap:6px; margin:0 18px 14px; padding:9px 16px; background:var(--navy); color:white; border-radius:10px; font-size:12px; font-weight:500; text-decoration:none; }
+  .sv-btn:hover { background:#1a3060; }
+
+  /* ITINERARY */
+  .day-stop { display:flex; gap:12px; margin-bottom:18px; align-items:flex-start; }
+  .day-stop-time { flex-shrink:0; font-size:11px; font-weight:600; color:var(--orange); letter-spacing:0.5px; min-width:52px; padding-top:2px; }
+  .day-stop-body { flex:1; }
+  .day-stop-title { font-size:14px; font-weight:600; margin-bottom:3px; color:var(--text); }
+  .day-stop-desc { font-size:12px; color:var(--muted); line-height:1.55; font-weight:500; }
+  .day-stop-warn { font-size:11px; color:#a61c00; background:#fde8e8; border-radius:6px; padding:4px 8px; margin-top:5px; display:inline-block; font-weight:600; }
+  .day-stop-good { font-size:11px; color:#2d6a4f; background:#e6f4ea; border-radius:6px; padding:4px 8px; margin-top:5px; display:inline-block; font-weight:600; }
+  .day-divider { height:1px; background:rgba(0,0,0,0.05); margin:4px 0 18px; }
   @media (prefers-color-scheme: dark) {
     body { background: #0F1624; color: #E8E4DC; }
     .nav { background: #1A2540; border-bottom-color: rgba(255,255,255,0.06); }
@@ -370,86 +391,6 @@
   .flag-red { background:#c60b1e; flex:1; }
   .flag-yellow { background:#ffc400; flex:1.4; }
   .header h1 { display:flex; align-items:center; gap:10px; }
-
-  /* ATTRACTION PHOTO / BANNER */
-  .attraction-photo {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    display: block;
-  }
-  .attraction-banner {
-    width: 100%;
-    border-radius: var(--radius) var(--radius) 0 0;
-  }
-  /* OPENING HOURS BADGE */
-  .hours-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 10px 18px 14px;
-    border-top: 1px solid rgba(0,0,0,0.05);
-  }
-  .hours-pill {
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-  .hours-open { background: #e6f4ea; color: #2d6a4f; }
-  .hours-limited { background: #fff3cd; color: #856404; }
-  .hours-closed { background: #fde8e8; color: #a61c00; }
-  .hours-label { font-size: 11px; color: var(--muted); align-self: center; margin-right: 2px; font-weight: 500; }
-  /* STREET VIEW BUTTON */
-  .sv-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin: 0 18px 14px;
-    padding: 9px 16px;
-    background: var(--navy);
-    color: white;
-    border-radius: 10px;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .sv-btn:hover { background: #1a3060; }
-  .sv-btn svg { flex-shrink: 0; }
-
-  /* ITINERARY DAY CARD */
-  .day-badge {
-    display: inline-block;
-    font-size: 11px;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: var(--navy);
-    color: white;
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-  .day-stop {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-    align-items: flex-start;
-  }
-  .day-stop-time {
-    flex-shrink: 0;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--orange);
-    letter-spacing: 0.5px;
-    min-width: 52px;
-    padding-top: 2px;
-  }
-  .day-stop-body { flex: 1; }
-  .day-stop-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; color: var(--text); }
-  .day-stop-desc { font-size: 12px; color: var(--muted); line-height: 1.55; font-weight: 500; }
-  .day-stop-warn { font-size: 11px; color: #a61c00; background: #fde8e8; border-radius: 6px; padding: 4px 8px; margin-top: 5px; display: inline-block; font-weight: 600; }
-  .day-divider { height: 1px; background: rgba(0,0,0,0.05); margin: 4px 0 18px; }
 </style>
 </head>
 <body>
@@ -473,39 +414,18 @@
   <div class="nav-item" onclick="showTab('history')">📜 History</div>
   <div class="nav-item" onclick="showTab('food')">🥘 Cuisine</div>
   <div class="nav-item" onclick="showTab('wines')">🍷 Wines</div>
-  <div class="nav-item" onclick="showTab('itinerary')">🗓 Itinerary</div>
   <div class="nav-item" onclick="showTab('info')">ℹ️ Info</div>
-  <div class="nav-item" onclick="showTab('shopping')">🛍 Shopping</div>
-  <div class="nav-item" onclick="showTab('bars')">🍸 Bars</div>
+  <div class="nav-item" onclick="showTab('itinerary')">🗓 Itinerary</div>
   <div class="nav-item" onclick="showTab('share')">↗ Share</div>
 </nav>
 
 <!-- WEATHER -->
-<div class="section active" id="tab-weather">
+<div class="section" id="tab-weather" style="display:block">
   <div class="hotel-card">
     <div class="hotel-label">Your Base</div>
     <div class="hotel-name">SH Valencia Palace</div>
     <div class="hotel-addr">Paseo de la Alameda, 32 · Valencia</div>
     <div class="hotel-info">Elegant 5-star hotel on the Alameda promenade, close to the Turia Gardens and city centre. A superb base for exploring all of Valencia.</div>
-  </div>
-
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header"><h2>✈️ Getting to Your Hotel</h2></div>
-    <div class="card-body">
-      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;">Valencia Airport (VLC) is just 8km west of the city — about 20 mins to the hotel. You have three options:</p>
-      <div class="tip-item" style="margin-bottom:10px;">
-        <div class="tip-icon">🚇</div>
-        <div><strong style="color:var(--navy);">Metro</strong> — Best value. Lines 3 or 5 from the airport station (inside terminal, follow signs). Ride to <strong>Alameda</strong> station — your hotel is a 2-min walk. ~25 mins, €4.80 + €1 card. Runs 6am–midnight.</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:10px;">
-        <div class="tip-icon">🚕</div>
-        <div><strong style="color:var(--navy);">Taxi</strong> — Easiest with luggage. Taxi rank outside Arrivals, available 24/7. ~20 mins, €20–25 (metered + €5.40 airport supplement). All taxis accept cards. Apps: <strong>Free Now</strong> or <strong>Cabify</strong> for upfront pricing.</div>
-      </div>
-      <div class="tip-item">
-        <div class="tip-icon">🚌</div>
-        <div><strong style="color:var(--navy);">Bus 150</strong> — Stops outside Arrivals, runs to city centre. ~40 mins, €4.80. Mon–Sat only (no Sunday service — so not an option on your arrival day if flying Sunday).</div>
-      </div>
-    </div>
   </div>
 
   <div id="weather-container">
@@ -531,7 +451,7 @@
 </div>
 
 <!-- RESTAURANTS -->
-<div class="section" id="tab-restaurants">
+<div class="section" id="tab-restaurants" style="display:none">
   <p class="section-title">Your Restaurants</p>
   <p class="section-intro">Four wonderful choices covering authentic Italian, Argentine grill, Valencian tapas & rice, and a rooftop cocktail bar — a perfect mix for your stay.</p>
 
@@ -610,10 +530,6 @@
       <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>18-min walk west through the Turia Gardens, then into the old town via Torres de Serranos. Or Metro Line 1 from Alameda to Xàtiva (2 stops), then a 10-min walk north through the Cathedral quarter to Carrer de la Corretgeria.</div></div>
 
       <div class="info-banner">💡 <strong>Tip:</strong> Book ahead — this is one of Valencia's most popular restaurants and queues form on weekends. The pear & pistachio ravioli is a must-try.</div>
-      <a href="https://www.thefork.es/restaurante/san-tommaso-r648910" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin:0 0 4px;padding:9px 16px;background:var(--orange);color:white;border-radius:10px;font-size:12px;font-weight:500;text-decoration:none;">
-        📅 Book a table — San Tommaso on TheFork
-      </a>
-    </div>
     </div>
   </div>
 
@@ -684,10 +600,6 @@
       <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk south-west through the city centre, down Calle de la Paz towards Plaza del Ayuntamiento, then a short walk to Carrer d'en Llop. Or Metro Line 1 from Alameda to Xàtiva (2 stops), then 5 mins on foot.</div></div>
 
       <div class="info-banner">💡 <strong>Tip:</strong> The tasting menu (includes drinks) is exceptional value and a guest favourite. Ask for Juan or Lucila — praised by name in countless reviews. Closed Wednesdays.</div>
-      <a href="https://www.thefork.es/restaurante/el-porteno-r394209" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin:0 0 4px;padding:9px 16px;background:var(--orange);color:white;border-radius:10px;font-size:12px;font-weight:500;text-decoration:none;">
-        📅 Book a table — El Porteño on TheFork
-      </a>
-    </div>
     </div>
   </div>
 
@@ -750,10 +662,6 @@
       <div class="how-to-get">🚌 <div><strong>Getting there from your hotel</strong>Best by bus — take Bus 1 or 19 from Paseo de la Alameda towards the beach (about 20 mins) and alight near El Cabanyal. Or Metro Line 4 from Alameda to Marítim-Serreria, then a short walk. Too far to walk comfortably — pair it with a morning at Malvarrosa Beach.</div></div>
 
       <div class="info-banner">💡 <strong>Tip:</strong> Located in El Cabanyal near the beach — ideal for a long lazy lunch after a morning at Malvarrosa. Book ahead at weekends. The house Sangria de Cava is a must-order.</div>
-      <a href="https://www.thefork.es/restaurante/la-taberna-casera-r790369" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin:0 0 4px;padding:9px 16px;background:var(--orange);color:white;border-radius:10px;font-size:12px;font-weight:500;text-decoration:none;">
-        📅 Book a table — La Taberna Casera on TheFork
-      </a>
-    </div>
     </div>
   </div>
 
@@ -812,63 +720,16 @@
       <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk south-west along Calle de la Paz into the city centre, straight to Plaza del Ayuntamiento. The entrance is around the back of the Ateneo Mercantil building — follow signs to Calle de Moratín, 12, not the main plaza entrance. Or Metro Line 1 from Alameda to Xàtiva (2 stops), then 5 mins on foot.</div></div>
 
       <div class="info-banner">💡 <strong>Tip:</strong> Enter via Calle de Moratín, 12 (around the back of the Ateneo Mercantil building) — not from Plaza del Ayuntamiento. There's an €8 entry fee, deducted from your bill if you order. Book a table for dinner; drinks-only groups of under 6 don't need a reservation. Perfect for sunset.</div>
-      <a href="https://ateneoskybar.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px;padding:9px 16px;background:var(--orange);color:white;border-radius:10px;font-size:12px;font-weight:500;text-decoration:none;">
-        📅 Book — Atenea Sky Bar website
-      </a>
     </div>
   </div>
-  <!-- Palau Vallier Rooftop -->
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <h2>Palau Vallier Rooftop</h2>
-      </div>
-      <div class="badge">Hotel Rooftop Bar</div>
-    </div>
-    <div class="card-body">
-      <div class="card-meta">
-        <span>📍 Carrer del Micalet, 8 · Old Town</span>
-        <span>🕐 Daily from 6pm (sunset sessions)</span>
-        <span>📞 +34 963 524 267</span>
-      </div>
-      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px;">The rooftop bar of MYR Hotel Palacio Vallier — a historic 18th-century palace just steps from the Cathedral. Spectacular 360° views over the old town rooftops and Cathedral towers. One of the best sunset spots in Valencia, with a relaxed, grown-up atmosphere. This is a hotel bar, not a standalone venue — but non-guests are welcome and it's highly rated.</p>
-
-      <div class="menu-section">
-        <div class="menu-section-title">Drinks</div>
-        <div class="menu-item">
-          <div><div class="menu-item-name">Agua de Valencia</div><div class="menu-item-desc">The Valencian classic — orange juice, cava, vodka & gin</div></div>
-          <div class="menu-item-price">~€12</div>
-        </div>
-        <div class="menu-item">
-          <div><div class="menu-item-name">Signature Cocktails</div><div class="menu-item-desc">Rotating seasonal menu with Valencian ingredients</div></div>
-          <div class="menu-item-price">~€12–15</div>
-        </div>
-        <div class="menu-item">
-          <div><div class="menu-item-name">Local Wines & Cava</div><div class="menu-item-desc">Valencian wines by the glass, cold beer</div></div>
-          <div class="menu-item-price">~€6–10</div>
-        </div>
-      </div>
-
-      <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk west into the old town via Calle de la Paz. The hotel entrance is on Carrer del Micalet, right beside the Cathedral — you can't miss it. Or Metro Line 1 from Alameda to Xàtiva, then 10 mins on foot.</div></div>
-    </div>
-  </div>
-
 </div>
 
 <!-- ATTRACTIONS -->
-<div class="section" id="tab-attractions">
+<div class="section" id="tab-attractions" style="display:none">
   <p class="section-title">Top 10 Attractions</p>
   <p class="section-intro">All directions are from Hotel SH Valencia Palace, Paseo de la Alameda, 32. Opening hours shown for Fri · Sat · Sun.</p>
 
-  <!-- 1 City of Arts & Sciences -->
   <div class="attraction">
-    <div class="attraction-banner" style="background:linear-gradient(135deg,#1a3a5c 0%,#0d6efd 60%,#00c8ff 100%);height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;">
-  <div style="position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
-  <div style="position:absolute;top:-30px;left:-30px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
-  <div style="font-size:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));">🏛</div>
-  <div style="color:white;font-size:13px;font-weight:600;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">CITY OF ARTS &amp; SCIENCES</div>
-  <div style="color:rgba(255,255,255,0.7);font-size:11px;">Calatrava · Valencia</div>
-</div>
     <div class="attraction-header">
       <div class="attraction-num">1</div>
       <div class="attraction-info">
@@ -882,22 +743,12 @@
       <span class="hours-pill hours-open">Sat 10am–8pm</span>
       <span class="hours-pill hours-open">Sun 10am–8pm</span>
     </div>
-    <div class="attraction-detail">Santiago Calatrava's futuristic masterpiece — an entire cultural city within a city. Home to Europe's largest aquarium (Oceanogràfic), an IMAX cinema (Hemisfèric), interactive science museum, opera house, and stunning gardens. Budget a full day here. Book tickets online in advance.</div>
-    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>Walk south along the Turia Gardens — about 25 mins on foot or a scenic 10-min bike ride. Bus 95 from Alameda stops right outside.</div></div>
-    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4536,-0.3502" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-      📍 Open Street View
-    </a>
+    <div class="attraction-detail">Santiago Calatrava's futuristic masterpiece — an entire cultural city within a city. Home to Europe's largest aquarium (Oceanogràfic), an IMAX cinema (Hemisfèric), interactive science museum, opera house, and stunning gardens. Budget a full day here.</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>Walk south along the Turia Gardens — about 25 mins on foot or a scenic 10-min bike ride. Alternatively, Bus 95 from Alameda stops right outside. Tram Line 1 from Pont de Fusta to Nou d'Octubre also works.</div></div>
+    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4536,-0.3502" target="_blank" rel="noopener">📍 Open Street View</a>
   </div>
 
-  <!-- 2 Valencia Cathedral -->
   <div class="attraction">
-    <div class="attraction-banner" style="background:linear-gradient(135deg,#5c3a1a 0%,#b8860b 60%,#ffd700 100%);height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;">
-  <div style="position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
-  <div style="font-size:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));">⛪</div>
-  <div style="color:white;font-size:13px;font-weight:600;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">VALENCIA CATHEDRAL</div>
-  <div style="color:rgba(255,255,255,0.7);font-size:11px;">Home of the Holy Grail · 13th Century</div>
-</div>
     <div class="attraction-header">
       <div class="attraction-num">2</div>
       <div class="attraction-info">
@@ -911,22 +762,12 @@
       <span class="hours-pill hours-open">Sat 10:30am–5:30pm</span>
       <span class="hours-pill hours-limited">Sun 2pm–5:30pm</span>
     </div>
-    <div class="attraction-detail">An extraordinary blend of Romanesque, Gothic, and Baroque styles built over a mosque. Houses what many scholars believe to be the actual Holy Grail. Climb the 207 steps of the Miguelete Bell Tower for panoramic city views. Entry from €3. Note: Sunday visits don't start until 2pm.</div>
+    <div class="attraction-detail">An extraordinary blend of Romanesque, Gothic, and Baroque styles built over a mosque. Houses what many scholars believe to be the actual Holy Grail. Climb the 207 steps of the Miguelete Bell Tower for panoramic city views. Entry from €3.</div>
     <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>15-min walk west along Calle de la Paz into the old town. Pass Plaza de la Reina and you're there.</div></div>
-    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4752,-0.3752" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-      📍 Open Street View
-    </a>
+    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4752,-0.3752" target="_blank" rel="noopener">📍 Open Street View</a>
   </div>
 
-  <!-- 3 Turia Gardens -->
   <div class="attraction">
-    <div class="attraction-banner" style="background:linear-gradient(135deg,#1a5c2a 0%,#2d8a3e 60%,#7ec850 100%);height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;">
-  <div style="position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
-  <div style="font-size:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));">🌳</div>
-  <div style="color:white;font-size:13px;font-weight:600;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">TURIA GARDENS</div>
-  <div style="color:rgba(255,255,255,0.7);font-size:11px;">9km of riverbed parkland · Always free</div>
-</div>
     <div class="attraction-header">
       <div class="attraction-num">3</div>
       <div class="attraction-info">
@@ -936,26 +777,16 @@
     </div>
     <div class="hours-row">
       <span class="hours-label">Hours:</span>
-      <span class="hours-pill hours-open">Fri Open 24hrs</span>
-      <span class="hours-pill hours-open">Sat Open 24hrs</span>
-      <span class="hours-pill hours-open">Sun Open 24hrs</span>
+      <span class="hours-pill hours-open">Fri Always open</span>
+      <span class="hours-pill hours-open">Sat Always open</span>
+      <span class="hours-pill hours-open">Sun Always open</span>
     </div>
-    <div class="attraction-detail">Nine kilometres of lush parkland built along the old Turia riverbed — one of Spain's largest urban parks. Free and always open. Perfect for walking, cycling, or picnicking. Passes Gulliver Park, Palau de la Música, and connects your hotel to the City of Arts &amp; Sciences.</div>
+    <div class="attraction-detail">Nine kilometres of lush parkland built along the old Turia riverbed — one of Spain's largest urban parks. Perfect for walking, cycling, or picnicking. Passes landmarks including the Gulliver Park, Palau de la Música, and connects your hotel to the City of Arts &amp; Sciences.</div>
     <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>The Turia Gardens are literally outside your hotel on Paseo de la Alameda — simply walk to the riverbed. Hire bikes from the hotel or a nearby rental shop.</div></div>
-    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4749,-0.3627" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-      📍 Open Street View
-    </a>
+    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4749,-0.3627" target="_blank" rel="noopener">📍 Open Street View</a>
   </div>
 
-  <!-- 4 Mercado Central -->
   <div class="attraction">
-    <div class="attraction-banner" style="background:linear-gradient(135deg,#7a1a00 0%,#E8630A 60%,#ffaa44 100%);height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;">
-  <div style="position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
-  <div style="font-size:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));">🏪</div>
-  <div style="color:white;font-size:13px;font-weight:600;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">MERCADO CENTRAL</div>
-  <div style="color:rgba(255,255,255,0.7);font-size:11px;">Art Nouveau 1928 · 1,200+ stalls</div>
-</div>
     <div class="attraction-header">
       <div class="attraction-num">4</div>
       <div class="attraction-info">
@@ -969,22 +800,12 @@
       <span class="hours-pill hours-open">Sat 7:30am–3pm</span>
       <span class="hours-pill hours-closed">Sun CLOSED</span>
     </div>
-    <div class="attraction-detail">Europe's largest fresh produce market, housed in a stunning 1928 Art Nouveau building. Over 1,200 stalls selling local produce, seafood, charcuterie, and more. Free to enter. Go early on Saturday — it gets very busy and closes at 3pm. Sunday is your only day you cannot visit.</div>
-    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk west into the old town. Or Metro Line 1 from Alameda to Xàtiva (2 stops), then 5 mins north to Plaza del Mercado.</div></div>
-    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4733,-0.3795" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-      📍 Open Street View
-    </a>
+    <div class="attraction-detail">Europe's largest fresh produce market, housed in a stunning Art Nouveau building from 1928. Over 1,200 stalls selling local produce, seafood, charcuterie, and more. A feast for the senses — and free to enter. Visit weekday mornings for the best atmosphere. Closed Sundays.</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk west into the old town. Or take Metro Line 1 from Alameda to Xàtiva (2 stops), then 5 mins on foot north to Plaza del Mercado.</div></div>
+    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4733,-0.3795" target="_blank" rel="noopener">📍 Open Street View</a>
   </div>
 
-  <!-- 5 La Lonja -->
   <div class="attraction">
-    <div class="attraction-banner" style="background:linear-gradient(135deg,#2e1a5c 0%,#6a3fa0 60%,#b08ee0 100%);height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;">
-  <div style="position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
-  <div style="font-size:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));">🏰</div>
-  <div style="color:white;font-size:13px;font-weight:600;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">LA LONJA DE LA SEDA</div>
-  <div style="color:rgba(255,255,255,0.7);font-size:11px;">UNESCO World Heritage · Gothic 1548</div>
-</div>
     <div class="attraction-header">
       <div class="attraction-num">5</div>
       <div class="attraction-info">
@@ -998,22 +819,12 @@
       <span class="hours-pill hours-open">Sat 9:30am–7pm</span>
       <span class="hours-pill hours-limited">Sun 10am–2pm</span>
     </div>
-    <div class="attraction-detail">A spectacular 15th-century Gothic masterpiece and UNESCO World Heritage Site. The magnificent Hall of Twisted Columns with its soaring spiral pillars is breathtaking. Right next to the Central Market. Entry €2. Note: Sunday closing is at 2pm — plan accordingly.</div>
+    <div class="attraction-detail">A spectacular 15th-century Gothic masterpiece and UNESCO World Heritage Site — one of Europe's finest examples of civil Gothic architecture. The magnificent Hall of Columns with its soaring twisted pillars is breathtaking. Right next to the Central Market.</div>
     <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>Same route as Mercado Central — they sit side by side in Plaza del Mercado. 20 mins on foot or Metro Line 1 to Xàtiva.</div></div>
-    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4736,-0.38" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-      📍 Open Street View
-    </a>
+    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4736,-0.38" target="_blank" rel="noopener">📍 Open Street View</a>
   </div>
 
-  <!-- 6 Barrio del Carmen -->
   <div class="attraction">
-    <div class="attraction-banner" style="background:linear-gradient(135deg,#1a1a2e 0%,#3a3a5c 60%,#6a6aaa 100%);height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;">
-  <div style="position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
-  <div style="font-size:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));">🏘</div>
-  <div style="color:white;font-size:13px;font-weight:600;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">BARRIO DEL CARMEN</div>
-  <div style="color:rgba(255,255,255,0.7);font-size:11px;">Medieval lanes · Street art · Nightlife</div>
-</div>
     <div class="attraction-header">
       <div class="attraction-num">6</div>
       <div class="attraction-info">
@@ -1027,22 +838,12 @@
       <span class="hours-pill hours-open">Sat Always open</span>
       <span class="hours-pill hours-open">Sun Always open</span>
     </div>
-    <div class="attraction-detail">Valencia's oldest and most atmospheric neighbourhood — medieval towers, narrow cobblestone lanes, Roman ruins, and vibrant street art all coexist. By day it's full of independent shops and cafés; by evening it's the heartbeat of Valencia's nightlife. Pair with a visit to IVAM (open Tue–Sun) on the Carmen border.</div>
+    <div class="attraction-detail">Valencia's oldest and most atmospheric neighbourhood — medieval towers, narrow cobblestone lanes, Roman ruins, and vibrant street art all coexist. By day it's full of independent shops and cafés; by evening it's the heartbeat of Valencia's nightlife. Don't miss the Torres de Serranos (14th-century city gates).</div>
     <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>15–20 min walk west across the Turia Gardens. Follow the riverbed path and enter the old town from the north side.</div></div>
-    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4769,-0.3795" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-      📍 Open Street View
-    </a>
+    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4769,-0.3795" target="_blank" rel="noopener">📍 Open Street View</a>
   </div>
 
-  <!-- 7 Malvarrosa Beach -->
   <div class="attraction">
-    <div class="attraction-banner" style="background:linear-gradient(135deg,#005f8a 0%,#0099cc 50%,#66ccff 100%);height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;">
-  <div style="position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to top,rgba(240,220,150,0.4),transparent);"></div>
-  <div style="font-size:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));">🏖</div>
-  <div style="color:white;font-size:13px;font-weight:600;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">MALVARROSA BEACH</div>
-  <div style="color:rgba(255,255,255,0.7);font-size:11px;">Mediterranean · 20 mins from hotel</div>
-</div>
     <div class="attraction-header">
       <div class="attraction-num">7</div>
       <div class="attraction-info">
@@ -1056,27 +857,17 @@
       <span class="hours-pill hours-open">Sat Always open</span>
       <span class="hours-pill hours-open">Sun Always open</span>
     </div>
-    <div class="attraction-detail">Valencia's main city beach — wide, sandy, and clean, with a long promenade lined with paella restaurants. The sea is around 18°C in late April — cool but swimmable. Great for a morning stroll, sunbathing, or a proper seafood lunch at one of the beachfront restaurants.</div>
-    <div class="how-to-get">🚌 <div><strong>Getting there from your hotel</strong>Metro Line 4 from Alameda to Marítim-Serreria (12 mins), then Tram Line 6/T8 to Platja de les Arenes. Or Bus 1 or 19 from the city centre. About 20 mins total.</div></div>
-    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4741,-0.3223" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-      📍 Open Street View
-    </a>
+    <div class="attraction-detail">Valencia's main city beach — wide, sandy, and clean, with a long promenade lined with paella restaurants. The sea is around 18°C in late April — cool but swimmable. Great for a morning stroll, sunbathing, or a proper seafood lunch at one of the beachfront chiringuitos.</div>
+    <div class="how-to-get">🚌 <div><strong>Getting there from your hotel</strong>Take Metro Line 4 from Alameda station to Marítim-Serreria (about 12 mins), then Tram Line 6 or T8 to Platja de les Arenes. Or Bus 1 or 19 from the city centre. About 20 mins total.</div></div>
+    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4741,-0.3223" target="_blank" rel="noopener">📍 Open Street View</a>
   </div>
 
-  <!-- 8 San Nicolas -->
   <div class="attraction">
-    <div class="attraction-banner" style="background:linear-gradient(135deg,#5c1a00 0%,#9a3a00 50%,#cc7722 100%);height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;">
-  <div style="position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
-  <div style="font-size:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));">🕌</div>
-  <div style="color:white;font-size:13px;font-weight:600;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">CHURCH OF SAN NICOLÁS</div>
-  <div style="color:rgba(255,255,255,0.7);font-size:11px;">The Valencian Sistine Chapel · 2,000m² frescoes</div>
-</div>
     <div class="attraction-header">
       <div class="attraction-num">8</div>
       <div class="attraction-info">
         <h3>Church of San Nicolás de Bari</h3>
-        <div class="attraction-type">Architecture · Baroque Frescoes</div>
+        <div class="attraction-type">Architecture · Frescoes</div>
       </div>
     </div>
     <div class="hours-row">
@@ -1085,22 +876,12 @@
       <span class="hours-pill hours-open">Sat 10am–7pm</span>
       <span class="hours-pill hours-open">Sun 1pm–8pm</span>
     </div>
-    <div class="attraction-detail">Often called the "Valencian Sistine Chapel" — the ceiling is covered in breathtaking Baroque frescoes across 2,000 sq m. One of the most visually stunning interiors in all of Spain, recently fully restored. Entry €8, includes audio guide. Book timed tickets in advance — it sells out.</div>
-    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk into the old town (Calle Caballeros 35), near the Cathedral. Or Metro to Xàtiva then walk north 10 mins.</div></div>
-    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4762,-0.3796" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-      📍 Open Street View
-    </a>
+    <div class="attraction-detail">Often called the "Valencian Sistine Chapel" — the ceiling is covered in breathtaking Baroque frescoes depicting the lives of the saints. One of the most visually stunning interiors in all of Spain, and recently fully restored. Book timed tickets in advance.</div>
+    <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk into the old town, near the Cathedral. Or Metro to Xàtiva then walk north 10 mins.</div></div>
+    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4762,-0.3796" target="_blank" rel="noopener">📍 Open Street View</a>
   </div>
 
-  <!-- 9 Ceramics Museum -->
   <div class="attraction">
-    <div class="attraction-banner" style="background:linear-gradient(135deg,#3a1a00 0%,#8B4513 50%,#cd8a3a 100%);height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;">
-  <div style="position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
-  <div style="font-size:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));">🏺</div>
-  <div style="color:white;font-size:13px;font-weight:600;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">CERAMICS MUSEUM</div>
-  <div style="color:rgba(255,255,255,0.7);font-size:11px;">Marqués de Dos Aguas · Rococo Palace</div>
-</div>
     <div class="attraction-header">
       <div class="attraction-num">9</div>
       <div class="attraction-info">
@@ -1114,22 +895,12 @@
       <span class="hours-pill hours-open">Sat 10am–2pm &amp; 4–8pm</span>
       <span class="hours-pill hours-limited">Sun 10am–2pm only</span>
     </div>
-    <div class="attraction-detail">Housed in a magnificent 15th-century palace with an extraordinary alabaster entrance carved in Rococo style. Inside: the National Ceramics Collection, Valencia's famous hand-painted tiles, and a recreation of a traditional Valencian kitchen from the 1700s. Note: Sunday afternoon session does not run.</div>
+    <div class="attraction-detail">Housed in a magnificent 15th-century palace with an extraordinary alabaster entrance carved in Rococo style. Inside you'll find the National Ceramics Collection, including Valencia's famous hand-painted tiles and a recreation of a traditional Valencian kitchen from the 1700s.</div>
     <div class="how-to-get">🚶 <div><strong>Getting there from your hotel</strong>20-min walk via Calle de la Paz. Or Metro to Xàtiva, then 5-min walk north up Calle del Poeta Querol.</div></div>
-    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4739,-0.3771" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-      📍 Open Street View
-    </a>
+    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.4739,-0.3771" target="_blank" rel="noopener">📍 Open Street View</a>
   </div>
 
-  <!-- 10 Albufera -->
   <div class="attraction">
-    <div class="attraction-banner" style="background:linear-gradient(135deg,#003a1a 0%,#006633 50%,#ff9900 100%);height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;">
-  <div style="position:absolute;bottom:0;left:0;right:0;height:50px;background:linear-gradient(to top,rgba(255,160,0,0.3),transparent);"></div>
-  <div style="font-size:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));">🌅</div>
-  <div style="color:white;font-size:13px;font-weight:600;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">ALBUFERA NATURAL PARK</div>
-  <div style="color:rgba(255,255,255,0.7);font-size:11px;">Lagoon · Boat rides · Paella birthplace</div>
-</div>
     <div class="attraction-header">
       <div class="attraction-num">10</div>
       <div class="attraction-info">
@@ -1143,17 +914,13 @@
       <span class="hours-pill hours-open">Sat Park always open</span>
       <span class="hours-pill hours-open">Sun Park always open</span>
     </div>
-    <div class="attraction-detail">A tranquil lagoon and wetland reserve just 10km south of Valencia — widely considered the birthplace of paella. Take a traditional wooden boat ride on the lagoon, spot migratory birds, and watch a stunning Mediterranean sunset. Local restaurants here serve paella in the most authentic setting possible. Best as a half-day trip.</div>
-    <div class="how-to-get">🚌 <div><strong>Getting there from your hotel</strong>Bus 25 from Plaça de l'Ajuntament runs directly to Albufera village (35–40 mins). Or join a half-day guided tour including a boat ride and paella lunch — well worth it.</div></div>
-    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.336,-0.349" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-      📍 Open Street View
-    </a>
+    <div class="attraction-detail">A tranquil lagoon and wetland reserve just 10km south of Valencia — widely considered the birthplace of paella. Take a traditional wooden boat ride on the lagoon, spot migratory birds, and watch a stunning Mediterranean sunset over the water. Local restaurants here serve paella in the most authentic setting possible.</div>
+    <div class="how-to-get">🚌 <div><strong>Getting there from your hotel</strong>Bus 25 from Plaça de l'Ajuntament runs directly to Albufera village (about 35–40 mins). Alternatively, join a half-day guided tour which often includes a boat ride and paella lunch — well worth it.</div></div>
+    <a class="sv-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=39.336,-0.349" target="_blank" rel="noopener">📍 Open Street View</a>
   </div>
-</div>
 
-<!-- HISTORY -->
-<div class="section" id="tab-history">
+</div>
+<div class="section" id="tab-history" style="display:none">
   <p class="section-title">Valencia Through the Ages</p>
   <p class="section-intro">From Roman colony to modern Mediterranean powerhouse — Valencia has one of the richest histories in Spain.</p>
 
@@ -1231,7 +998,7 @@
 </div>
 
 <!-- FOOD & DRINK -->
-<div class="section" id="tab-food">
+<div class="section" id="tab-food" style="display:none">
   <p class="section-title">Valencian Food & Drink</p>
   <p class="section-intro">Valencia's culinary heritage is one of the richest in Spain — a product of Roman, Moorish, and Mediterranean influences across 2,000 years.</p>
 
@@ -1296,7 +1063,7 @@
 </div>
 
 <!-- WINES -->
-<div class="section" id="tab-wines">
+<div class="section" id="tab-wines" style="display:none">
   <p class="section-title">Local Wines</p>
   <p class="section-intro">Valencia's wine scene is undergoing a quiet renaissance. With three distinct DOs — Valencia, Utiel-Requena, and Alicante — the region produces everything from powerful reds to crisp Mediterranean whites and legendary sweet Moscatel.</p>
 
@@ -1354,10 +1121,142 @@
   </div>
 </div>
 
+<!-- INFO -->
+<div class="section" id="tab-info" style="display:none">
+  <p class="section-title">Practical Info</p>
+  <p class="section-intro">Everything you need for a smooth trip — transport, money, apps, and emergency contacts.</p>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-header"><h2>✈️ Airport to Hotel</h2></div>
+    <div class="card-body">
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;">Valencia Airport (VLC) is just 8km west — about 20 mins to the hotel. Three options:</p>
+      <div class="tip-item" style="margin-bottom:10px;">
+        <div class="tip-icon">🚇</div>
+        <div><strong style="color:var(--navy);">Metro</strong> — Best value. Lines 3 or 5 from inside the terminal. Ride to <strong>Alameda</strong> station — 2-min walk to hotel. ~25 mins, €4.80 + €1 card. Runs 6am–midnight.</div>
+      </div>
+      <div class="tip-item" style="margin-bottom:10px;">
+        <div class="tip-icon">🚕</div>
+        <div><strong style="color:var(--navy);">Taxi</strong> — Easiest with luggage. Rank outside Arrivals, 24/7. ~20 mins, €20–25 (metered + €5.40 airport supplement). All taxis accept cards. Apps: <strong>Free Now</strong> or <strong>Cabify</strong> for upfront pricing.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🚌</div>
+        <div><strong style="color:var(--navy);">Bus 150</strong> — Stops outside Arrivals. ~40 mins, €4.80. Mon–Sat only — no Sunday service.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-header"><h2>🚕 Getting Around</h2></div>
+    <div class="card-body">
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🚕</div>
+        <div><strong style="color:var(--navy);">Taxi apps</strong> — Download <strong>Free Now</strong> or <strong>Cabify</strong> before you arrive. Upfront pricing, widely available. Street taxis are white with a red stripe and must accept card.</div>
+      </div>
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🚇</div>
+        <div><strong style="color:var(--navy);">Metro</strong> — Alameda station is 2 mins from your hotel. Line 1 covers most old town stops. Runs 6am–midnight.</div>
+      </div>
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🚴</div>
+        <div><strong style="color:var(--navy);">Bikes</strong> — The Turia Gardens are made for cycling. Hire from your hotel or nearby rental shops. ~€8–12/day.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🎫</div>
+        <div><strong style="color:var(--navy);">Valencia Tourist Card</strong> — Worth it for 3 days. Unlimited public transport + free entry to Torres de Serranos, IVAM, La Almoina, and discounts at Oceanogràfic and more. Buy at the airport on arrival. 72hr card ~€25.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-header"><h2>💶 Money & Tipping</h2></div>
+    <div class="card-body">
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🏧</div>
+        <div><strong style="color:var(--navy);">ATMs</strong> — Widely available. Avoid airport ATMs (poor rates). Use bank ATMs (BBVA, Sabadell, CaixaBank). Contactless is universal.</div>
+      </div>
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">💡</div>
+        <div><strong style="color:var(--navy);">Tipping</strong> — Not obligatory. Rounding up or leaving €1–2 per person at sit-down restaurants is normal. No expectation to tip at bars or market stalls.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🍽</div>
+        <div><strong style="color:var(--navy);">Meal times</strong> — Lunch is 2–4pm, dinner rarely before 9pm. Restaurants often won't seat for dinner before 8:30pm. Lean into it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-header"><h2>📱 Useful Apps</h2></div>
+    <div class="card-body">
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🗺</div>
+        <div><strong style="color:var(--navy);">Google Maps</strong> — Download Valencia offline before you travel. Works without internet for walking and transit.</div>
+      </div>
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🚕</div>
+        <div><strong style="color:var(--navy);">Free Now / Cabify</strong> — Taxi apps. More reliable than hailing off the street, price shown upfront.</div>
+      </div>
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🍽</div>
+        <div><strong style="color:var(--navy);">TheFork (ElTenedor)</strong> — Book restaurants online. All your restaurants are on it — book as early as possible, especially for weekends.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🚇</div>
+        <div><strong style="color:var(--navy);">Metrovalencia</strong> — Official metro app with real-time times and journey planner.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-header"><h2>🆘 Emergency Numbers</h2></div>
+    <div class="card-body">
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🚨</div>
+        <div><strong style="color:var(--navy);">112</strong> — EU emergency number. Police, ambulance and fire. English-speaking operators available.</div>
+      </div>
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🏥</div>
+        <div><strong style="color:var(--navy);">Hospital La Fe</strong> — Main hospital, English-speaking staff. Av. Fernando Abril Martorell, 106. Tel: +34 961 244 000.</div>
+      </div>
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">💊</div>
+        <div><strong style="color:var(--navy);">Pharmacies</strong> — Green cross sign. Mon–Fri 9am–9pm, Sat 9am–2pm. Out-of-hours pharmacies listed in the window of any closed one.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🏨</div>
+        <div><strong style="color:var(--navy);">SH Valencia Palace</strong> — Tel: <a href="tel:+34963376100" style="color:var(--orange);">+34 963 376 100</a>. Paseo de la Alameda, 32.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-header"><h2>💡 Good to Know</h2></div>
+    <div class="card-body">
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🗣</div>
+        <div><strong style="color:var(--navy);">Language</strong> — Signs in Spanish and Valencian. Hospitality staff almost all speak English. Useful words: <em>gracias</em> (thank you), <em>por favor</em> (please), <em>la cuenta</em> (the bill).</div>
+      </div>
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">🔌</div>
+        <div><strong style="color:var(--navy);">Plugs</strong> — Spain uses Type C/F plugs (round two-pin, 230V). Bring an EU adapter.</div>
+      </div>
+      <div class="tip-item" style="margin-bottom:12px;">
+        <div class="tip-icon">☀️</div>
+        <div><strong style="color:var(--navy);">Sun</strong> — Even in April Valencia's sun is strong. Wear SPF, especially on long walks around the old town.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">👜</div>
+        <div><strong style="color:var(--navy);">Pickpockets</strong> — Low risk vs Barcelona or Madrid, but stay aware around the Cathedral, Central Market, and on the metro. Keep bags in front in crowds.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SHOPPING -->
 <!-- ITINERARY -->
-<div class="section" id="tab-itinerary">
+<div class="section" id="tab-itinerary" style="display:none">
   <p class="section-title">Day-by-Day Plan</p>
-  <p class="section-intro">Arriving Friday at noon — three full days of sightseeing, grouped by area and timed around actual opening hours.</p>
+  <p class="section-intro">Arriving Friday at noon — three full days grouped by area and timed around actual opening hours.</p>
 
   <!-- FRIDAY -->
   <div class="card" style="margin-bottom:16px;">
@@ -1366,50 +1265,45 @@
       <div class="badge">City of Arts &amp; Sciences</div>
     </div>
     <div class="card-body">
-      <div class="info-banner" style="margin-bottom:16px;">✈️ Arriving at noon — head straight south to the futuristic quarter. Everything here stays open until 8pm so you have the whole afternoon.</div>
-
+      <div class="info-banner" style="margin-bottom:16px;">✈️ Arriving at noon — head straight south to the futuristic quarter. Everything stays open until 8pm so you have the whole afternoon.</div>
       <div class="day-stop">
         <div class="day-stop-time">12:30pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">Check in — SH Valencia Palace</div>
-          <div class="day-stop-desc">Drop bags, freshen up. The hotel is right on the Turia Gardens — the perfect launching pad for the afternoon.</div>
+          <div class="day-stop-desc">Drop bags, freshen up. The hotel is right on the Turia Gardens — perfect launching pad for the afternoon.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">1:30pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🚴 Cycle the Turia Gardens South</div>
-          <div class="day-stop-desc">Hire a bike from outside the hotel and ride south along the old riverbed — one of the great urban cycling routes in Spain. About 25 mins to reach the Arts &amp; Sciences complex.</div>
+          <div class="day-stop-desc">Hire a bike from outside the hotel and ride south along the old riverbed. About 25 mins to the Arts &amp; Sciences complex.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">2:15pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🏛 City of Arts &amp; Sciences</div>
-          <div class="day-stop-desc">Open until 8pm — you have nearly 6 hours. Priorities: L'Oceanogràfic (Europe's largest aquarium, allow 2–3 hrs), L'Hemisfèric IMAX shows, and the extraordinary Calatrava architecture. Walk the Umbracle gardens for free. Book tickets online in advance.</div>
+          <div class="day-stop-desc">Open until 8pm — nearly 6 hours. Priorities: L'Oceanogràfic (Europe's largest aquarium, allow 2–3 hrs), L'Hemisfèric IMAX, and the extraordinary Calatrava architecture. Walk the Umbracle gardens for free. Book tickets online in advance.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">6:30pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🎭 Museo Fallero</div>
-          <div class="day-stop-desc">10-min taxi from Arts &amp; Sciences. Open until 8pm on Fridays — your best window of the trip (Saturday closes 6pm, Sunday only until 1pm). Dedicated to Valencia's Fallas festival — ninots (satirical figures) saved from the annual bonfire. Allow 45 mins.</div>
+          <div class="day-stop-desc">10-min taxi from Arts &amp; Sciences. Dedicated to Valencia's Fallas festival — ninots saved from the annual bonfire. Allow 45 mins.</div>
           <div class="day-stop-warn">⚠️ Closes 8pm Fri · 6pm Sat · 1pm Sun — Friday is your only good window</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">9:00pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🥩 Dinner — El Porteño</div>
-          <div class="day-stop-desc">Argentine steakhouse near Plaza del Ayuntamiento. Exceptional tasting menu with drinks included. Ask for Juan or Lucila. Closed Wednesdays, so Friday is perfect.</div>
+          <div class="day-stop-desc">Argentine steakhouse near Plaza del Ayuntamiento. Exceptional tasting menu with drinks included. Ask for Juan or Lucila. Closed Wednesdays — Friday is perfect.</div>
         </div>
       </div>
     </div>
@@ -1422,77 +1316,69 @@
       <div class="badge">Old Town Day</div>
     </div>
     <div class="card-body">
-      <div class="info-banner" style="margin-bottom:16px;">🏪 Mercado Central closes at 3pm and is CLOSED Sundays — hit it first thing. Everything else clusters perfectly around it.</div>
-
+      <div class="info-banner" style="margin-bottom:16px;">🏪 Mercado Central closes at 3pm and is CLOSED Sundays — hit it first thing.</div>
       <div class="day-stop">
         <div class="day-stop-time">9:30am</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🛒 Mercado Central</div>
-          <div class="day-stop-desc">Europe's largest fresh market — 1,200+ stalls of seafood, jamón, produce, and local food. Go early before crowds build. Grab breakfast at Central Bar inside. Closes 3pm; shut Sundays.</div>
+          <div class="day-stop-desc">Europe's largest fresh market — 1,200+ stalls. Go early. Grab breakfast at Central Bar inside.</div>
           <div class="day-stop-warn">⚠️ Closes 3pm · CLOSED Sunday</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">10:30am</div>
         <div class="day-stop-body">
-          <div class="day-stop-title">🏛 La Lonja de la Seda (Silk Exchange)</div>
-          <div class="day-stop-desc">Directly opposite the market — UNESCO Gothic masterpiece. The Hall of Twisted Columns is breathtaking. Open until 7pm Sat (only 2pm Sun, so today is best). Entry €2. Allow 45 mins.</div>
+          <div class="day-stop-title">🏛 La Lonja de la Seda</div>
+          <div class="day-stop-desc">Directly opposite the market — UNESCO Gothic masterpiece. Open until 7pm Sat (only 2pm Sun). Entry €2. Allow 45 mins.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">11:30am</div>
         <div class="day-stop-body">
           <div class="day-stop-title">⛪ Valencia Cathedral &amp; Miguelete Tower</div>
-          <div class="day-stop-desc">10-min walk east. See the Holy Grail chalice, then climb the 207 steps of the Miguelete Tower for the best old-town view. Open until 5:30pm Sat. Note: Sunday doesn't open for visits until 2pm — Saturday is clearly the better day.</div>
+          <div class="day-stop-desc">See the Holy Grail chalice, then climb 207 steps of the Miguelete Tower. Open until 5:30pm Sat. Sunday doesn't open until 2pm — Saturday is the better day.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">1:30pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🍽 Lunch in the old town</div>
-          <div class="day-stop-desc">Tapas on a terrace around Plaza de la Reina or Calle Caballeros. Order horchata and fartons for dessert at a nearby horchatería.</div>
+          <div class="day-stop-desc">Tapas on a terrace around Plaza de la Reina or Calle Caballeros. Order horchata and fartons for dessert.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">3:00pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">⛪ Church of San Nicolás</div>
-          <div class="day-stop-desc">The "Valencian Sistine Chapel" — 2,000 sq m of breathtaking Baroque frescoes. Open until 7pm on Saturday. Entry €8 including audio guide. Book timed tickets online in advance — it sells out.</div>
+          <div class="day-stop-desc">The "Valencian Sistine Chapel" — 2,000 sq m of breathtaking Baroque frescoes. Open until 7pm Sat. Entry €8 including audio guide. Book timed tickets online — it sells out.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">4:30pm</div>
         <div class="day-stop-body">
-          <div class="day-stop-title">🏺 Ceramics Museum — Marqués de Dos Aguas</div>
-          <div class="day-stop-desc">5-min walk. The alabaster Rococo palace facade alone is worth the trip. Inside: the National Ceramics Collection and a traditional Valencian kitchen from the 1700s. Open until 8pm Sat. Sunday only goes to 2pm — today is perfect.</div>
+          <div class="day-stop-title">🏺 Ceramics Museum</div>
+          <div class="day-stop-desc">The alabaster Rococo palace facade alone is worth the trip. Open until 8pm Sat. Sunday only goes to 2pm — today is perfect.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">6:30pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🍸 Cocktails — Palau Vallier Rooftop</div>
-          <div class="day-stop-desc">Rooftop bar of MYR Hotel Palacio Vallier — cathedral views, great cocktails, right in the heart of the old town. Time it for sunset. (This is a hotel bar, not a standalone venue.)</div>
+          <div class="day-stop-desc">Rooftop bar of MYR Hotel Palacio Vallier — cathedral views, great cocktails. Time it for sunset.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">9:00pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🥘 Dinner — La Taberna Casera</div>
-          <div class="day-stop-desc">El Cabanyal neighbourhood for authentic Valencian rice and fresh fried seafood. The legendary house Sangria de Cava is unique to this restaurant. Book ahead — over 5,700 Google reviews.</div>
+          <div class="day-stop-desc">El Cabanyal for authentic Valencian rice and fresh fried seafood. The legendary house Sangria de Cava is unique to this restaurant. Book ahead.</div>
         </div>
       </div>
     </div>
@@ -1505,535 +1391,63 @@
       <div class="badge">Carmen, Gates &amp; Art</div>
     </div>
     <div class="card-body">
-      <div class="info-banner" style="margin-bottom:16px;">⚠️ Torres de Serranos closes at 2pm on Sundays — make this your very first stop of the day.</div>
-
+      <div class="info-banner" style="margin-bottom:16px;">⚠️ Torres de Serranos closes at 2pm on Sundays — make this your very first stop.</div>
       <div class="day-stop">
         <div class="day-stop-time">10:00am</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🏰 Torres de Serranos — First Stop</div>
-          <div class="day-stop-desc">14th-century Gothic city gates — among the most impressive medieval towers in Spain. Climb to the top for sweeping views over the Turia Gardens and old-town rooftops. Entry €2. Don't leave this until later — it shuts at 2pm on Sundays.</div>
+          <div class="day-stop-desc">14th-century Gothic city gates. Climb to the top for sweeping views over the Turia Gardens and old-town rooftops. Entry €2.</div>
           <div class="day-stop-warn">⚠️ Closes 2pm on Sundays — go first thing</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">11:00am</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🚴 Cycle the Turia Gardens</div>
-          <div class="day-stop-desc">Pick up bikes near the towers and ride the full length of the old riverbed back toward your hotel — a leisurely 45-min ride through one of Europe's great urban parks.</div>
+          <div class="day-stop-desc">Hire bikes and ride the full length of the old riverbed back toward your hotel — a leisurely 45-min ride.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">12:30pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🍽 Lunch — San Tommaso</div>
-          <div class="day-stop-desc">Celebrated Italian restaurant in the heart of Ciutat Vella. The pear &amp; pistachio ravioli is a must. Book ahead.</div>
+          <div class="day-stop-desc">Celebrated Italian restaurant in Ciutat Vella. The pear &amp; pistachio ravioli is a must. Book ahead.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">2:00pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🎨 Barrio del Carmen</div>
-          <div class="day-stop-desc">Wander the cobbled medieval lanes — street art, independent boutiques, Roman ruins, and the best café terraces in Valencia. The neighbourhood is at its liveliest on Sunday afternoons.</div>
+          <div class="day-stop-desc">Wander the cobbled medieval lanes — street art, independent boutiques, Roman ruins and the best café terraces in Valencia.</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">4:00pm</div>
         <div class="day-stop-body">
-          <div class="day-stop-title">🖼 IVAM — Instituto Valenciano de Arte Moderno</div>
-          <div class="day-stop-desc">Spain's first modern art museum, right on the edge of Carmen. Open until 7pm Sundays and FREE all day — the perfect pairing. Over 11,000 works in the permanent collection. Allow 1.5–2 hrs.</div>
-          <div class="day-stop-warn">🎉 Free entry all day Sunday · Open until 7pm</div>
+          <div class="day-stop-title">🖼 IVAM — Modern Art Museum</div>
+          <div class="day-stop-desc">Spain's first modern art museum, right on the edge of Carmen. Open until 7pm Sundays and FREE all day. Allow 1.5–2 hrs.</div>
+          <div class="day-stop-good">🎉 Free entry all day Sunday · Open until 7pm</div>
         </div>
       </div>
       <div class="day-divider"></div>
-
       <div class="day-stop">
         <div class="day-stop-time">7:30pm</div>
         <div class="day-stop-body">
           <div class="day-stop-title">🌅 Farewell drinks &amp; dinner</div>
-          <div class="day-stop-desc">Return to a favourite spot or find a terrace in El Carmen for a final Agua de Valencia. The perfect close to the trip.</div>
+          <div class="day-stop-desc">Return to a favourite spot or find a terrace in El Carmen for a final Agua de Valencia.</div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="info-banner">⏰ <strong>Key hours to remember:</strong> Mercado Central 7:30am–3pm, CLOSED Sun · Torres de Serranos closes 2pm Sun · Museo Fallero closes 8pm Fri / 6pm Sat / 1pm Sun · Cathedral opens 2pm Sun · IVAM FREE &amp; open until 7pm Sun · Ceramics Museum Sunday mornings only (to 2pm)</div>
+  <div class="info-banner">⏰ <strong>Key hours:</strong> Mercado Central 7:30am–3pm, CLOSED Sun · Torres de Serranos closes 2pm Sun · Museo Fallero closes 8pm Fri / 6pm Sat / 1pm Sun · Cathedral opens 2pm Sun · IVAM FREE &amp; open until 7pm Sun</div>
 </div>
 
-<!-- PRACTICAL INFO -->
-<div class="section" id="tab-info">
-  <p class="section-title">Practical Info</p>
-  <p class="section-intro">Everything you need to know for a smooth trip — transport, money, apps, and emergency contacts.</p>
-
-  <!-- Getting Around -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header"><h2>🚕 Getting Around</h2></div>
-    <div class="card-body">
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🚕</div>
-        <div><strong style="color:var(--navy);">Taxi apps</strong> — Download <strong>Free Now</strong> or <strong>Cabify</strong> before you arrive. Both work like Uber, give upfront pricing, and are widely available in Valencia. Standard street taxis are also plentiful — all are white with a red stripe and must accept card.</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🚇</div>
-        <div><strong style="color:var(--navy);">Metro & tram</strong> — Alameda station is 2 mins from your hotel. Line 1 covers most old town stops. Buy a reusable card (€1) and load it — up to 4 people can share one card. Runs 6am–midnight.</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🚴</div>
-        <div><strong style="color:var(--navy);">Bikes</strong> — The Turia Gardens are made for cycling. Hire from your hotel or <strong>Valenbisi</strong> (city bike scheme). Many rental shops near the hotel charge ~€8–12/day. Helmets recommended.</div>
-      </div>
-      <div class="tip-item">
-        <div class="tip-icon">🎫</div>
-        <div><strong style="color:var(--navy);">Valencia Tourist Card</strong> — Worth considering for a 3-day stay. Covers unlimited public transport + free entry to Torres de Serranos, IVAM, La Almoina, and discounts at many attractions including the Oceanogràfic. Buy at the airport kiosk on arrival. 72-hour card ~€25.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Money -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header"><h2>💶 Money & Tipping</h2></div>
-    <div class="card-body">
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🏧</div>
-        <div><strong style="color:var(--navy);">ATMs</strong> — Widely available throughout the city. Avoid airport ATMs (poor rates). Use ATMs attached to banks (BBVA, Sabadell, CaixaBank) for best rates. Most restaurants and shops accept card — contactless is universal.</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">💡</div>
-        <div><strong style="color:var(--navy);">Tipping</strong> — Not obligatory in Spain, but appreciated. Rounding up the bill or leaving €1–2 per person at sit-down restaurants is perfectly normal. No expectation to tip at bars or market stalls.</div>
-      </div>
-      <div class="tip-item">
-        <div class="tip-icon">🧾</div>
-        <div><strong style="color:var(--navy);">Meal times</strong> — Spaniards eat late. Lunch is 2–4pm (the main meal of the day), dinner rarely starts before 9pm. Restaurants often won't seat you for dinner before 8:30pm. Don't fight it — lean in.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Useful Apps -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header"><h2>📱 Useful Apps</h2></div>
-    <div class="card-body">
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🗺</div>
-        <div><strong style="color:var(--navy);">Google Maps</strong> — Download Valencia offline before you travel. Works without internet for walking and transit directions.</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🚕</div>
-        <div><strong style="color:var(--navy);">Free Now / Cabify</strong> — Taxi apps. More reliable than hailing off the street, and you see the price upfront.</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🍽</div>
-        <div><strong style="color:var(--navy);">TheFork (ElTenedor)</strong> — Book restaurants online. All four of your restaurants are on it — book as soon as possible, especially for weekends.</div>
-      </div>
-      <div class="tip-item">
-        <div class="tip-icon">🚇</div>
-        <div><strong style="color:var(--navy);">Metrovalencia app</strong> — Official metro app with real-time times and a journey planner. Also shows tram lines.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Emergency & Useful Numbers -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header"><h2>🆘 Emergency Numbers</h2></div>
-    <div class="card-body">
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🚨</div>
-        <div><strong style="color:var(--navy);">112</strong> — EU emergency number. Works for police, ambulance, and fire. English-speaking operators available.</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">👮</div>
-        <div><strong style="color:var(--navy);">091</strong> — National Police (for theft/crime reports). <strong>092</strong> — Local Police.</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🏥</div>
-        <div><strong style="color:var(--navy);">Hospital La Fe</strong> — Main hospital, has English-speaking staff. Av. Fernando Abril Martorell, 106. Tel: +34 961 244 000.</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">💊</div>
-        <div><strong style="color:var(--navy);">Pharmacies (Farmacia)</strong> — Green cross sign, open Mon–Fri 9am–9pm, Sat 9am–2pm. Out-of-hours pharmacies (farmacias de guardia) are listed in the window of any closed pharmacy.</div>
-      </div>
-      <div class="tip-item">
-        <div class="tip-icon">🏨</div>
-        <div><strong style="color:var(--navy);">SH Valencia Palace</strong> — Your hotel. Tel: <a href="tel:+34963376100" style="color:var(--orange);">+34 963 376 100</a>. Address: Paseo de la Alameda, 32, 46023 Valencia.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Good to Know -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header"><h2>💡 Good to Know</h2></div>
-    <div class="card-body">
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🗣</div>
-        <div><strong style="color:var(--navy);">Language</strong> — Signs are in both Spanish and Valencian (similar to Catalan). Hospitality staff almost all speak English. A few words of Spanish go a long way: <em>gracias</em> (thank you), <em>por favor</em> (please), <em>la cuenta</em> (the bill).</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">🔌</div>
-        <div><strong style="color:var(--navy);">Plugs</strong> — Spain uses Type C/F plugs (round two-pin, 230V). Bring an EU adapter if coming from Ireland/UK.</div>
-      </div>
-      <div class="tip-item" style="margin-bottom:12px;">
-        <div class="tip-icon">☀️</div>
-        <div><strong style="color:var(--navy);">Sun</strong> — Even in April, Valencia's sun is strong. Wear SPF on exposed skin, especially during long walks around the old town.</div>
-      </div>
-      <div class="tip-item">
-        <div class="tip-icon">👜</div>
-        <div><strong style="color:var(--navy);">Pickpockets</strong> — Low risk in Valencia compared to Barcelona or Madrid, but stay aware around the Cathedral, Central Market, and on the metro. Keep bags in front of you in crowded areas.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SHOPPING -->
-<div class="section" id="tab-shopping">
-  <p class="section-title">Shopping in Valencia</p>
-  <p class="section-intro">From luxury boutiques on the Golden Mile to vintage finds in Ruzafa and artisan crafts in El Carmen — Valencia is a serious shopping city.</p>
-
-  <!-- SHOPPING HOURS BANNER -->
-  <div class="info-banner" style="margin-bottom:16px;">🕐 <strong>General hours:</strong> Mon–Sat 10am–9pm. Most independent shops close for siesta 2–5pm. Shops generally closed Sundays — plan Saturday for shopping. Large chains (Zara, H&M, El Corte Inglés) stay open all day.</div>
-
-  <!-- ZONE 1: CALLE COLÓN -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header">
-      <h2>🛍 Calle Colón</h2>
-      <div class="badge">High Street</div>
-    </div>
-    <div class="card-body">
-      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;">Valencia's premier shopping boulevard — the equivalent of Oxford Street. Runs from Estación del Norte almost to Turia Park. Three El Corte Inglés stores anchor the street, plus the only Apple Store in Valencia. About 20 mins walk from your hotel, or Metro Line 1 to Colón.</p>
-      <div class="menu-section">
-        <div class="menu-section-title">Major Brands Here</div>
-        <div class="menu-item"><div><div class="menu-item-name">Zara</div><div class="menu-item-desc">Calle Colón — flagship store, huge selection</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">H&M</div><div class="menu-item-desc">Calle Colón — full range men's, women's & home</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Mango</div><div class="menu-item-desc">Calle Colón — women's fashion</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Bershka</div><div class="menu-item-desc">Calle Colón — younger fashion, part of Inditex</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Pull & Bear</div><div class="menu-item-desc">Calle Colón — casual men's & women's</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Foot Locker</div><div class="menu-item-desc">Calle Colón — trainers & sportswear</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Apple Store</div><div class="menu-item-desc">Calle Colón — Valencia's only Apple Store</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">El Corte Inglés</div><div class="menu-item-desc">Calle Colón, 27 — Spain's iconic department store. Fashion, beauty, electronics, gourmet food hall on the top floor. Three branches on this street alone.</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Sephora</div><div class="menu-item-desc">Calle Don Juan de Austria — beauty & fragrance</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Primark</div><div class="menu-item-desc">Calle Russafa — budget fashion, very large store</div></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ZONE 2: GOLDEN MILE (Calle Poeta Querol) -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header">
-      <h2>✨ The Golden Mile</h2>
-      <div class="badge">Luxury</div>
-    </div>
-    <div class="card-body">
-      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;">Calle del Poeta Querol and Calle del Marqués de Dos Aguas — Valencia's luxury shopping corridor, right next to the Ceramics Museum. Home to the major international fashion houses and Spanish luxury brands. 20-min walk from your hotel via Calle de la Paz.</p>
-      <div class="menu-section">
-        <div class="menu-section-title">Luxury Brands Here</div>
-        <div class="menu-item"><div><div class="menu-item-name">Loewe</div><div class="menu-item-desc">Calle Poeta Querol — Spain's most prestigious leather house, founded 1846</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Louis Vuitton</div><div class="menu-item-desc">Calle Poeta Querol — handbags, leather goods, ready-to-wear</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Carolina Herrera</div><div class="menu-item-desc">Calle Poeta Querol — Venezuelan-Spanish luxury fashion house</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Hugo Boss</div><div class="menu-item-desc">Calle Poeta Querol — premium men's & women's</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Max Mara</div><div class="menu-item-desc">Calle Pascual y Genis — Italian luxury womenswear</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Salvatore Ferragamo</div><div class="menu-item-desc">Calle Poeta Querol — Italian luxury shoes & leather</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Bulgari</div><div class="menu-item-desc">Calle Poeta Querol — Italian jewellery & watches</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Boss Women / Boss Men</div><div class="menu-item-desc">Calle del Marqués de Dos Aguas — contemporary premium fashion</div></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ZONE 3: CÁNOVAS / EL PLA DEL REMEI -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header">
-      <h2>🏙 Cánovas & El Pla del Remei</h2>
-      <div class="badge">Upscale</div>
-    </div>
-    <div class="card-body">
-      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;">The elegant neighbourhood adjacent to Calle Colón. Streets like Carrer de Jorge Juan and Carrer de Cirilo Amorós are lined with upscale boutiques and Spanish designer stores. Great for a slower browse. The stunning Mercado de Colón is right here — perfect for a coffee break mid-shop.</p>
-      <div class="menu-section">
-        <div class="menu-section-title">Shops & Designers Here</div>
-        <div class="menu-item"><div><div class="menu-item-name">Adolfo Domínguez</div><div class="menu-item-desc">Carrer de Cirilo Amorós — leading Spanish fashion designer</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Javier Simorra</div><div class="menu-item-desc">Carrer de Jorge Juan — elegant Spanish womenswear</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">COS</div><div class="menu-item-desc">Cánovas area — H&M Group's minimalist premium line</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Sandro</div><div class="menu-item-desc">Cánovas area — Parisian contemporary fashion</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Mercado de Colón</div><div class="menu-item-desc">Jorge Juan — stunning 1914 market hall with artisan stalls, jewellery, accessories, wine bars and horchata. A beautiful mid-shop stop.</div></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ZONE 4: RUZAFA -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header">
-      <h2>🎨 Ruzafa</h2>
-      <div class="badge">Bohemian & Vintage</div>
-    </div>
-    <div class="card-body">
-      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;">Valencia's hippest neighbourhood — a 15-min walk south of the old town. Think independent boutiques, vintage stores, local designers, record shops and concept stores all woven between great cafés and bars. The place to find something genuinely unique.</p>
-      <div class="menu-section">
-        <div class="menu-section-title">Local Boutiques & Independents</div>
-        <div class="menu-item"><div><div class="menu-item-name">Villamax</div><div class="menu-item-desc">Ruzafa — atelier of designer Gonzalo Villamax. Gender-fluid, handmade pieces. He's often in the shop himself.</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Gnomo</div><div class="menu-item-desc">Ruzafa — beloved local concept store with contemporary design gifts, homeware and accessories</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Musgo Bazar</div><div class="menu-item-desc">Ruzafa — curated gift shop with a strong local design ethos</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Rehabita</div><div class="menu-item-desc">Ruzafa — gifts and home décor with a modern Valencian feel</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Diseño 43</div><div class="menu-item-desc">Ruzafa — gifts, home decor, ceramic pots and Valencian design objects</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Colmado LaLola</div><div class="menu-item-desc">Ruzafa — gourmet food shop: local olive oils, craft beer, Valencian products. Perfect for edible souvenirs.</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Ultrasound</div><div class="menu-item-desc">Ruzafa — independent record shop, great selection</div></div></div>
-      </div>
-      <div class="menu-section">
-        <div class="menu-section-title">Vintage & Second-Hand</div>
-        <div class="menu-item"><div><div class="menu-item-name">Madame Mim</div><div class="menu-item-desc">Ruzafa/Eixample — curated vintage clothing, very popular</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Trinity Vintage</div><div class="menu-item-desc">Ruzafa — well-curated vintage rails, good prices</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Reborn Vintage Atelier</div><div class="menu-item-desc">Ruzafa — vintage pieces reworked and restyled into new one-off items</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Old Style Vintage</div><div class="menu-item-desc">Ruzafa — broad vintage selection, well priced</div></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ZONE 5: EL CARMEN -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header">
-      <h2>🏛 El Carmen</h2>
-      <div class="badge">Artisan & Independent</div>
-    </div>
-    <div class="card-body">
-      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;">The medieval old town is the place for artisan crafts, independent clothing stores, jewellers, and Valencian ceramic shops. Winding streets mean unexpected finds — some of these shops have been trading in the same spot for generations.</p>
-      <div class="menu-section">
-        <div class="menu-section-title">Artisan & Local Shops</div>
-        <div class="menu-item"><div><div class="menu-item-name">El Raconet</div><div class="menu-item-desc">El Carmen — traditional Valencian ceramics: hand-painted tiles, bowls and azulejos</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Mandala</div><div class="menu-item-desc">El Carmen — artisan jewellery, handmade pieces</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">AlVent</div><div class="menu-item-desc">El Carmen — contemporary handmade jewellery, local designer</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Plaça Redonda</div><div class="menu-item-desc">Old Town — circular plaza lined with small stalls selling lace, ceramics, fans and traditional Valencian crafts. A short walk from the Cathedral.</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Carrer del Músic Peydró</div><div class="menu-item-desc">"Street of the Baskets" — medieval street famous for handwoven Valencian wicker baskets, unchanged for centuries. Unique souvenirs.</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Gnomo El Carmen</div><div class="menu-item-desc">El Carmen — sister store to the Ruzafa Gnomo, handcrafted local goods and gifts</div></div></div>
-      </div>
-      <div class="menu-section">
-        <div class="menu-section-title">Clothing Boutiques</div>
-        <div class="menu-item"><div><div class="menu-item-name">Wakanda</div><div class="menu-item-desc">El Carmen — independent women's clothing boutique</div></div></div>
-        <div class="menu-item"><div><div class="menu-item-name">Straganza</div><div class="menu-item-desc">El Carmen — alternative fashion, original pieces</div></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WHAT TO BUY -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header">
-      <h2>🎁 Valencian Souvenirs Worth Buying</h2>
-    </div>
-    <div class="card-body">
-      <div class="tip-item" style="margin-bottom:10px;"><div class="tip-icon">🏺</div><div><strong style="color:var(--navy);">Hand-painted ceramics & azulejo tiles</strong> — Valencia has a 700-year ceramic tradition. Look for hand-painted tiles and bowls in El Carmen and Plaça Redonda. Far better quality than tourist-shop versions.</div></div>
-      <div class="tip-item" style="margin-bottom:10px;"><div class="tip-icon">🍊</div><div><strong style="color:var(--navy);">Valencian food products</strong> — Saffron, rice (Bomba, Senia), horchata powder, Moscatel wine, local olive oil. All available at Mercado Central or Colmado LaLola in Ruzafa.</div></div>
-      <div class="tip-item" style="margin-bottom:10px;"><div class="tip-icon">👜</div><div><strong style="color:var(--navy);">Spanish leather goods</strong> — Loewe is the ultimate, but there are many quality leather shops in the old town at more accessible prices. Valencia has a long leather-working tradition.</div></div>
-      <div class="tip-item" style="margin-bottom:10px;"><div class="tip-icon">🪭</div><div><strong style="color:var(--navy);">Fans (abanicos)</strong> — Traditional hand-painted Valencian fans are made locally and make beautiful gifts. Look for hand-made versions in Plaça Redona — avoid mass-produced tourist versions.</div></div>
-      <div class="tip-item"><div class="tip-icon">🧺</div><div><strong style="color:var(--navy);">Wicker baskets</strong> — Carrer del Músic Peydró ("Street of the Baskets") has sold handwoven Valencian wicker baskets for centuries. Practical, beautiful, and genuinely local.</div></div>
-    </div>
-  </div>
-
-  <div class="info-banner">💡 <strong>Sunday shopping:</strong> Most independent shops are CLOSED on Sundays. El Corte Inglés and some chains in the centre may open with reduced hours. Best shopping days are Friday afternoon and all day Saturday.</div>
-</div>
-
-<!-- BARS -->
-<div class="section" id="tab-bars">
-  <p class="section-title">Bars & Nightlife</p>
-  <p class="section-intro">From neo-baroque cocktail palaces to hidden speakeasies and a legendary jazz club — Valencia's bar scene is one of the best in Spain.</p>
-
-  <div class="info-banner" style="margin-bottom:16px;">🕐 <strong>Valencia drinks late.</strong> Bars come alive from 9pm, peak around 11pm–1am. Clubs don't fill until after midnight. Most bars open until 2–3am on weekends.</div>
-
-  <!-- COCKTAIL BARS -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header">
-      <h2>🍸 Cocktail Bars</h2>
-    </div>
-    <div class="card-body">
-
-      <!-- Café de las Horas -->
-      <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,0.06);">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
-          <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);">Café de las Horas</div>
-          <div class="badge">Must Visit</div>
-        </div>
-        <div class="card-meta" style="margin-bottom:8px;">
-          <span>📍 Carrer del Comte d'Almodóvar, 1 · El Carmen</span>
-          <span>🕐 Daily 10am–2am</span>
-        </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:8px;">One of Valencia's most iconic bars — a neo-baroque, utterly theatrical space dripping with red velvet, chandeliers, sculptures and flowers. Frequently called the most beautiful bar in Spain. Famous as the best place in the city for Agua de Valencia, served in half-litre or full-litre carafes. Has been featured in films and TV shows. Go early evening before the queues build.</p>
-        <div class="info-banner" style="margin:0;">🍊 <strong>Order:</strong> Agua de Valencia (served by the carafe) · Signature cocktails · Excellent coffee</div>
-      </div>
-
-      <!-- Apotheke Speakeasy -->
-      <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,0.06);">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
-          <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);">Apotheke Speakeasy</div>
-          <div class="badge">Speakeasy</div>
-        </div>
-        <div class="card-meta" style="margin-bottom:8px;">
-          <span>📍 C. Císcar, 26, Bajo Izquierda · Eixample</span>
-          <span>🕐 Mon/Wed–Thu 7pm–1:30am · Fri–Sat 5pm–1:30am · Sun 7pm–1:30am · Closed Tue</span>
-        </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:8px;">Valencia's first and finest speakeasy — inspired by Prohibition-era America and consistently ranked among Spain's top 50 bars. Hidden behind an unmarked door; you need the daily password to enter (get it by booking online). 1920s-inspired interior with low lighting, live jazz music, and an extraordinary cocktail menu. Whisky Sour with bacon and Parmesan bitters, smoky Mezcal Paloma — nothing is ordinary here. Oysters and small plates also available. Book well in advance.</p>
-        <div class="info-banner" style="margin:0;">🔑 <strong>Tip:</strong> Password required — book via apothekevlc.com. Reservations essential at weekends.</div>
-      </div>
-
-      <!-- The Green Book -->
-      <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,0.06);">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
-          <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);">The Green Book</div>
-          <div class="badge">World's 50 Best</div>
-        </div>
-        <div class="card-meta" style="margin-bottom:8px;">
-          <span>📍 Ruzafa neighbourhood</span>
-          <span>🕐 Evenings Wed–Sun</span>
-        </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:8px;">A secret bar disguised as a bookshop in Ruzafa — the sign outside reads <em>Librería</em> and nothing suggests a bar within. Step inside and find yourself in a Hogwarts-meets-speakeasy world: floor-to-ceiling bookshelves, sofas, tables and a bar hidden among the stacks. Featured in the World's 50 Best Bars list in 2026. The cocktail menu resembles a velvet-bound diary. Signature drinks are all creative originals. One of the most talked-about bars in Spain right now.</p>
-        <div class="info-banner" style="margin:0;">📖 <strong>Tip:</strong> Find it in Ruzafa — look for the bookshop front. No sign of a bar outside. Best visited with a reservation.</div>
-      </div>
-
-      <!-- Café Madrid -->
-      <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,0.06);">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
-          <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);">Café Madrid</div>
-          <div class="badge">Historic</div>
-        </div>
-        <div class="card-meta" style="margin-bottom:8px;">
-          <span>📍 Carrer de Abadía de Sant Martí, 2 · El Carmen</span>
-          <span>🕐 Mon–Thu 9:30am–1am · Fri 9:30am–2am · Sat 10am–2am · Sun 10am–1am</span>
-        </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:8px;">This is the birthplace of Agua de Valencia — the legendary cocktail was invented here in 1959 and this bar has been the hub of Valencia's bohemian and artistic life ever since. A heritage site of the city. Beyond the classic Agua de Valencia, the bar now offers 11 new signature cocktails inspired by Valencian landscapes — from marshes to volcanoes. Old Fashioned made with Woodford Reserve (€18), Hugo Spritz with cava (€12), and the locally inspired <em>Un paseo por la Albufera</em> using Valencian gin M'Alegra. A must-visit for history alone.</p>
-        <div class="info-banner" style="margin:0;">🍊 <strong>Order:</strong> The original Agua de Valencia · Valencian gin cocktail · Any of the 11 signature creations</div>
-      </div>
-
-      <!-- Borgia Wine Bar -->
-      <div>
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
-          <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);">Borgia Wine Bar</div>
-          <div class="badge">Terrace</div>
-        </div>
-        <div class="card-meta" style="margin-bottom:8px;">
-          <span>📍 Calle dels Cavallers · El Carmen</span>
-          <span>🕐 Daily from 6pm</span>
-        </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:8px;">On the iconic Calle dels Cavallers — the main artery of El Carmen — this elegant wine bar has a terrace perfect for warm evenings and a cocktail menu celebrating Renaissance hedonism (fitting for a Borgia-themed bar in a city with deep Spanish history). Excellent wine list alongside creative cocktails. Great spot for a long, relaxed evening drink in the heart of the old town.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ROOFTOP BARS -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header">
-      <h2>🌇 Rooftop Bars</h2>
-    </div>
-    <div class="card-body">
-
-      <!-- Atenea Sky Bar -->
-      <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,0.06);">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
-          <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);">Atenea Sky Bar</div>
-          <div class="badge">360° Views</div>
-        </div>
-        <div class="card-meta" style="margin-bottom:8px;">
-          <span>📍 Calle de Moratín, 12 · 8th floor · Ciutat Vella</span>
-          <span>🕐 Daily 11am–1:30am</span>
-          <span>📞 +34 687 601 842</span>
-        </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:8px;">Perched on the 8th floor of the historic Ateneo Mercantil building, this rooftop offers 360° views over Plaza del Ayuntamiento and the Valencia skyline. Over 400m² of open-air terrace with signature Valencian cocktails, tapas, and DJs from Wednesday evenings. Enter via Calle de Moratín 12 (around the back — not the main plaza entrance). €8 entry fee, deducted from your drinks bill.</p>
-        <div class="info-banner" style="margin:0;">⚠️ <strong>Note:</strong> Enter from Calle de Moratín, 12 — not from Plaza del Ayuntamiento.</div>
-      </div>
-
-      <!-- Palau Vallier -->
-      <div>
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
-          <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);">Palau Vallier Rooftop</div>
-          <div class="badge">Cathedral Views</div>
-        </div>
-        <div class="card-meta" style="margin-bottom:8px;">
-          <span>📍 Carrer del Micalet, 8 · Old Town</span>
-          <span>🕐 Daily from 6pm</span>
-        </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;">The rooftop bar of MYR Hotel Palacio Vallier — an 18th-century palace just steps from the Cathedral. Spectacular views over the old town rooftops and cathedral towers. Relaxed, grown-up atmosphere. One of the best sunset spots in Valencia. Non-guests welcome.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- LIVE MUSIC BARS -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header">
-      <h2>🎵 Live Music Bars</h2>
-    </div>
-    <div class="card-body">
-
-      <!-- Jimmy Glass -->
-      <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,0.06);">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
-          <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);">Jimmy Glass Jazz Bar</div>
-          <div class="badge">Since 1991</div>
-        </div>
-        <div class="card-meta" style="margin-bottom:8px;">
-          <span>📍 Calle de Baix, 28 · El Carmen</span>
-          <span>🕐 Thu–Sat from 8pm · Concert nights only</span>
-          <span>📞 +34 656 890 143</span>
-        </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:8px;">A legendary New York-style jazz club tucked into El Carmen since 1991 — one of the most intimate and respected jazz venues in Spain. Narrow, atmospheric room with the band in the middle and the audience packed around them. International-calibre musicians play here every week. Cocktails and tapas served throughout. Only open on concert nights — check jimmyglassjazz.net before going. Reserve well in advance (email preferred) as it sells out.</p>
-        <div class="info-banner" style="margin:0;">🎷 <strong>Tip:</strong> Serious jazz — talking during performances is not appreciated. Arrive early for the best seats. Check programme at jimmyglassjazz.net</div>
-      </div>
-
-      <!-- Radio City -->
-      <div>
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
-          <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);">Radio City</div>
-          <div class="badge">Live Music & Flamenco</div>
-        </div>
-        <div class="card-meta" style="margin-bottom:8px;">
-          <span>📍 Calle de Santa Teresa, 19 · El Carmen</span>
-          <span>🕐 Tue–Sun 10pm–4am</span>
-        </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:8px;">One of Valencia's most beloved bars — a lively, laid-back venue that covers all bases: Flamenco shows on Tuesdays, live reggae on Wednesdays and Sundays, DJ sets playing funk, Latin, rock and reggaeton Thursday–Saturday. Cocktail masterclasses also on offer. Great crowd, all ages, genuinely fun. A Valencia institution.</p>
-        <div class="info-banner" style="margin:0;">💃 <strong>Don't miss:</strong> Flamenco night on Tuesdays — authentic and electric. Get there by 10:30pm for a good spot.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- LOCAL & NEIGHBOURHOOD BARS -->
-  <div class="card" style="margin-bottom:16px;">
-    <div class="card-header">
-      <h2>🍺 Local & Neighbourhood Bars</h2>
-    </div>
-    <div class="card-body">
-
-      <!-- Café Negrito -->
-      <div style="margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(0,0,0,0.06);">
-        <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Café Negrito</div>
-        <div class="card-meta" style="margin-bottom:6px;"><span>📍 Plaza del Negrito · El Carmen</span><span>🕐 Daily from 5pm</span></div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;">A beloved local institution on one of El Carmen's most charming squares. Popular with an intellectual, mixed-age crowd. Great terrace that spills onto the plaza. Beer and cocktails, great atmosphere, very Valencian.</p>
-      </div>
-
-      <!-- Café Sant Jaume -->
-      <div style="margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(0,0,0,0.06);">
-        <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Café Sant Jaume</div>
-        <div class="card-meta" style="margin-bottom:6px;"><span>📍 Plaça de Sant Jaume, 8 · El Carmen</span><span>🕐 Daily from midday</span></div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;">A classic Valencia bar for nearly 30 years — cosy, authentic, and famous for its Agua de Valencia. Great terrace, friendly staff, and genuinely local feel. A perfect spot after visiting Torres de Serranos.</p>
-      </div>
-
-      <!-- Beer & Travels -->
-      <div style="margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(0,0,0,0.06);">
-        <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Beer & Travels</div>
-        <div class="card-meta" style="margin-bottom:6px;"><span>📍 Near Plaza de la Virgen · El Carmen</span><span>🕐 Daily from 4pm</span></div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;">A craft beer lover's paradise — 29 taps and over 100 bottled options covering Valencian, Spanish and international brews. Born from the owner's obsession with collecting beer bottles. Tapas, cheese boards, and salads to go alongside. The best craft beer selection in the old town.</p>
-      </div>
-
-      <!-- L'Ermità Café -->
-      <div>
-        <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">L'Ermità Café</div>
-        <div class="card-meta" style="margin-bottom:6px;"><span>📍 Carrer del Bisbe en Jeroni, 4 · El Carmen</span><span>🕐 Evenings daily</span></div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;">A charming, eclectic bar that hosts regular live music, open mic nights, language exchanges and art exhibitions. Lampshades made from old instruments, walls covered in curiosities. Relaxed and welcoming — very much a neighbourhood bar rather than a tourist spot.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- QUICK REFERENCE -->
-  <div class="info-banner">🗺 <strong>Bar geography:</strong> El Carmen is the hub — most of the best bars are within a 10-min walk of each other. Ruzafa has the coolest new bars (The Green Book, Apotheke). Rooftops and hotel bars cluster around the Cathedral and city centre. Valencia drinks late — don't arrive anywhere before 9:30pm.</div>
-</div>
-
-<!-- SHARE -->
-<div class="section" id="tab-share">
+<div class="section" id="tab-share" style="display:none">
   <p class="section-title">Share This App</p>
   <p class="section-intro">This is a fully self-contained HTML file that works on any device — no app store, no login, no internet connection required once downloaded.</p>
 
@@ -2093,34 +1507,19 @@
 
 <script>
 function showTab(id) {
-  const allTabs = ['weather','restaurants','attractions','history','food','wines','itinerary','info','shopping','bars','share'];
-  // Hide all sections explicitly
+  var allTabs = ['weather','restaurants','attractions','history','food','wines','info','itinerary','share'];
   allTabs.forEach(function(t) {
     var el = document.getElementById('tab-' + t);
     if (el) el.style.display = 'none';
   });
-  // Remove active from all nav items
   document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
-  // Show the selected tab
   var target = document.getElementById('tab-' + id);
   if (target) target.style.display = 'block';
-  // Highlight the correct nav item
   var idx = allTabs.indexOf(id);
   var navItems = document.querySelectorAll('.nav-item');
   if (navItems[idx]) navItems[idx].classList.add('active');
   window.scrollTo(0, 0);
 }
-
-// Initialise on load — hide all tabs except weather
-(function init() {
-  var allTabs = ['restaurants','attractions','history','food','wines','itinerary','info','shopping','bars','share'];
-  allTabs.forEach(function(t) {
-    var el = document.getElementById('tab-' + t);
-    if (el) el.style.display = 'none';
-  });
-  var weather = document.getElementById('tab-weather');
-  if (weather) weather.style.display = 'block';
-})();
 
 function shareApp() {
   if (navigator.share) {
